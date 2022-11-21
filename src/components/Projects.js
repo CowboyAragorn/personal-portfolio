@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 
 const ProjectsWrapper = styled.main`
-  min-height: 100vh;
+  min-height: ${(props) => props.theme.size.sectionHeight};
   background-color: white;
 `;
 
-const Projects = () => {
+const Projects = (props) => {
+  const projectsRef = useRef();
+
   return (
-    <ProjectsWrapper>
+    <ProjectsWrapper ref={props.reference}>
       <p>My projects go here</p>
     </ProjectsWrapper>
   );
