@@ -8,7 +8,6 @@ import Contact from "./Contact";
 
 function App() {
   const scrollToDiv = (ref) => {
-    console.log(ref);
     ref.current.scrollIntoView({ alignToTop: true, behavior: "smooth" });
   };
   const heroRef = useRef();

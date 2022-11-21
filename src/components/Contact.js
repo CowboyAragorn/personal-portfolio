@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterWrapper = styled.footer`
-  min-height: ${(props) => props.theme.size.sectionHeight};
+  //this has to be 90vh to prevent scrolling through bottom of page
+  min-height: 90vh;
   background-color: black;
   color: white;
 `;

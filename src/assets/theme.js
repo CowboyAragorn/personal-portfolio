@@ -11,7 +11,7 @@ const theme = {
   },
   size: {
     headerHeight: "10vh",
-    sectionHeight: "93vh",
+    sectionHeight: "100vh",
   },
   spacing: {},
 };

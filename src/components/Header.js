@@ -4,13 +4,21 @@ import styled from "styled-components";
 const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: sticky;
+  position: fixed;
   top: 0;
-  padding-left: 35px;
-  padding-right: 35px;
+  left: 0;
+  width: 100%;
   background-color: ${(props) => props.theme.colors.jet};
   min-height: ${(props) => props.theme.size.headerHeight};
+`;
+
+const LinksContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: 100%;
 `;
 const HeaderLink = styled.button`
   color: ${(props) => props.theme.colors.white};
@@ -30,15 +38,17 @@ const NavList = styled.ul`
 const Header = (props) => {
   return (
     <HeaderWrapper>
-      <HeaderLink onClick={props.heroClick}>Jacob Potter</HeaderLink>
-      <NavList>
-        <li>
-          <HeaderLink onClick={props.projectsClick}>Projects</HeaderLink>
-        </li>
-        <li>
-          <HeaderLink onClick={props.contactClick}>Contact</HeaderLink>
-        </li>
-      </NavList>
+      <LinksContainer>
+        <HeaderLink onClick={props.heroClick}>Jacob Potter</HeaderLink>
+        <NavList>
+          <li>
+            <HeaderLink onClick={props.projectsClick}>Projects</HeaderLink>
+          </li>
+          <li>
+            <HeaderLink onClick={props.contactClick}>Contact</HeaderLink>
+          </li>
+        </NavList>
+      </LinksContainer>
     </HeaderWrapper>
   );
 };
