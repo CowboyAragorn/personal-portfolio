@@ -9,8 +9,9 @@ const HeroWrapper = styled.div`
   align-items: flex-end;
   gap: 25px;
   padding-right: 100px;
-  min-height: ${(props) => props.theme.size.sectionHeight};
-  max-height: ${(props) => props.theme.size.sectionHeight};
+  //min-height is set at 102 for the blur box-shadow effect,
+  //the bottom border blurs into the projects page, removing the harsh edge
+  min-height: 102vh;
   background-color: white;
   background-image: linear-gradient(
       to right,
@@ -22,6 +23,7 @@ const HeroWrapper = styled.div`
   background-size: 100% 100%;
   background-position: top;
   background-repeat: no-repeat;
+  box-shadow: -3px -1vh 8px ${(props) => props.theme.colors.gainsboro} inset;
 `;
 
 const NameContainer = styled.div`
