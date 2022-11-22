@@ -24,14 +24,6 @@ const projects = [
     liveURL: "https://cowboyaragorn.github.io/CV-Application/",
   },
   {
-    name: "API Weather App",
-    screenshot: require("./assets/weatherScreenshot.png"),
-    description:
-      "Pulls current weather from OpenWeatherMap API and displays daily and weekly predictions. Location can be changed dynamically to display weather from cities globally.",
-    github: "https://github.com/CowboyAragorn/Weather-App",
-    liveURL: "https://cowboyaragorn.github.io/Weather-App/",
-  },
-  {
     name: "Knight's Travails",
     screenshot: require("./assets/knightScreenshot.png"),
     description:
@@ -48,28 +40,35 @@ const projects = [
     liveURL: "https://cowboyaragorn.github.io/Binary-Search-Tree/",
   },
   {
-    name: "Binary Search Tree",
-    screenshot: require("./assets/binaryScreenshot.png"),
+    name: "Linked List",
+    screenshot: require("./assets/linkedListScreenshot.png"),
     description:
-      "Building a balanced binary search tree from a sorted array of data, then performing various insertion, deletion, search, deliberate unbalancing and rebalancing methods.",
-    github: "https://github.com/CowboyAragorn/Binary-Search-Tree",
-    liveURL: "https://cowboyaragorn.github.io/Binary-Search-Tree/",
+      "Create a linked list constructor and methods to append, prepend, find size, index of node, insert nodes, and remove nodes.",
+    github: "https://github.com/CowboyAragorn/Linked-List",
+    liveURL: "https://cowboyaragorn.github.io/Linked-List/",
   },
   {
-    name: "Binary Search Tree",
-    screenshot: require("./assets/binaryScreenshot.png"),
+    name: "API Weather App",
+    screenshot: require("./assets/weatherScreenshot.png"),
     description:
-      "Building a balanced binary search tree from a sorted array of data, then performing various insertion, deletion, search, deliberate unbalancing and rebalancing methods.",
-    github: "https://github.com/CowboyAragorn/Binary-Search-Tree",
-    liveURL: "https://cowboyaragorn.github.io/Binary-Search-Tree/",
+      "Pulls current weather from OpenWeatherMap API and displays daily and weekly predictions. Location can be changed dynamically to display weather from cities globally.",
+    github: "https://github.com/CowboyAragorn/Weather-App",
+    liveURL: "https://cowboyaragorn.github.io/Weather-App/",
   },
   {
-    name: "Binary Search Tree",
-    screenshot: require("./assets/binaryScreenshot.png"),
+    name: "Sign Up Form",
+    screenshot: require("./assets/signupScreenshot.png"),
+    description: "Mock sign up form utilizing front-end form validation.",
+    github: "https://github.com/CowboyAragorn/Sign-up-Form",
+    liveURL: "https://cowboyaragorn.github.io/Sign-up-Form/",
+  },
+  {
+    name: "Todo List",
+    screenshot: require("./assets/todoScreenshot.png"),
     description:
-      "Building a balanced binary search tree from a sorted array of data, then performing various insertion, deletion, search, deliberate unbalancing and rebalancing methods.",
-    github: "https://github.com/CowboyAragorn/Binary-Search-Tree",
-    liveURL: "https://cowboyaragorn.github.io/Binary-Search-Tree/",
+      "Webpack bundled application. Create, edit, and delete lists. Each list has tasks that can be crossed out, deleted, and rearranged. Each task has its own notes and date.   Local persistence.",
+    github: "https://github.com/CowboyAragorn/Todo-List",
+    liveURL: "https://cowboyaragorn.github.io/Todo-List/",
   },
 ];
 
