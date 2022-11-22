@@ -3,22 +3,29 @@ import styled from "styled-components";
 
 const HeaderWrapper = styled.header`
   display: flex;
+  box-sizing: border-box;
   align-items: center;
+  /* position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -o-sticky;
+  position: -ms-sticky;
+  position: sticky; */
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  min-width: 100%;
   background-color: ${(props) => props.theme.colors.jet};
   min-height: ${(props) => props.theme.size.headerHeight};
 `;
 
 const LinksContainer = styled.div`
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
   padding-left: 35px;
   padding-right: 35px;
-  width: 100%;
+  min-width: 100%;
 `;
 const HeaderLink = styled.button`
   color: ${(props) => props.theme.colors.white};

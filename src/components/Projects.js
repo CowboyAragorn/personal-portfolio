@@ -11,10 +11,20 @@ const ProjectsWrapper = styled.main`
   padding-top: ${(props) => props.theme.size.headerHeight};
 `;
 
+const SectionHeader = styled.h2`
+  font-size: 3rem;
+  grid-column: 1/-1;
+`;
+
 const TotalContainer = styled.div`
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; */
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(510px, 1fr));
+  grid-template-rows: auto;
+  justify-items: center;
   gap: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -23,11 +33,13 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px;
-
+  //this ensures buttons on bottom and title are lined up, may have to limit sentence length to fix for real
+  justify-content: space-between;
+  box-sizing: border-box;
+  max-width: 510px;
   min-height: 400px;
   gap: 15px;
-  padding: 30px;
+  padding: 25px 30px 25px 30px;
   background-color: ${(props) => props.theme.colors.indigoDye};
   color: ${(props) => props.theme.colors.white};
 `;
@@ -38,9 +50,8 @@ const ProjectHeader = styled.h2`
 const ProjectText = styled.p`
   font-size: 1.5rem;
 `;
-
 const StyledScreenshot = styled.img`
-  max-width: 480px;
+  max-width: 450px;
   max-height: 400px;
 `;
 const IconContainer = styled.div`
@@ -69,6 +80,7 @@ const Projects = (props) => {
   return (
     <ProjectsWrapper ref={props.reference}>
       <TotalContainer>
+        <SectionHeader>Projects</SectionHeader>
         {projects.map((project) => {
           return (
             <ProjectContainer>
@@ -94,14 +106,6 @@ const Projects = (props) => {
             </ProjectContainer>
           );
         })}
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
       </TotalContainer>
     </ProjectsWrapper>
   );
