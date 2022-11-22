@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import bearBackground from "../assets/bear-background.jpg";
+import { keyframes } from "styled-components";
 
 const HeroWrapper = styled.div`
   display: flex;
@@ -51,6 +52,7 @@ const StyledName = styled.h2`
   font-size: 5rem;
   color: ${(props) => props.theme.colors.jet};
 `;
+
 const StyledTitle = styled.p`
   font-size: 2.5rem;
   //transparent Ming
