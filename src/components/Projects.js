@@ -23,8 +23,9 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  //this ensures buttons on bottom and title are lined up, may have to limit sentence length to fix for real
+  justify-content: space-between;
   max-width: 500px;
-
   min-height: 400px;
   gap: 15px;
   padding: 30px;
@@ -94,14 +95,6 @@ const Projects = (props) => {
             </ProjectContainer>
           );
         })}
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
       </TotalContainer>
     </ProjectsWrapper>
   );
