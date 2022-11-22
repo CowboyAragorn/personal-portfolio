@@ -12,7 +12,9 @@ const ProjectsWrapper = styled.main`
 `;
 
 const SectionHeader = styled.h2`
-  font-size: 3rem;
+
+  font-size: 5rem;
+
   grid-column: 1/-1;
 `;
 
@@ -20,9 +22,8 @@ const TotalContainer = styled.div`
   /* display: flex;
   flex-wrap: wrap;
   justify-content: center; */
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(510px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
   grid-template-rows: auto;
   justify-items: center;
   gap: 30px;
@@ -36,12 +37,13 @@ const ProjectContainer = styled.div`
   //this ensures buttons on bottom and title are lined up, may have to limit sentence length to fix for real
   justify-content: space-between;
   box-sizing: border-box;
-  max-width: 510px;
+  max-width: 520px;
   min-height: 400px;
   gap: 15px;
-  padding: 25px 30px 25px 30px;
+  padding: 25px 35px 25px 35px;
   background-color: ${(props) => props.theme.colors.indigoDye};
   color: ${(props) => props.theme.colors.white};
+  border-radius: 15px 0 0 0;
 `;
 
 const ProjectHeader = styled.h2`
