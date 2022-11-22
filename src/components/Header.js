@@ -5,17 +5,19 @@ const HeaderWrapper = styled.header`
   display: flex;
   box-sizing: border-box;
   align-items: center;
-  /* position: -webkit-sticky;
+  position: -webkit-sticky;
   position: -moz-sticky;
   position: -o-sticky;
   position: -ms-sticky;
-  position: sticky; */
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
   min-width: 100%;
   background-color: ${(props) => props.theme.colors.jet};
   min-height: ${(props) => props.theme.size.headerHeight};
+  z-index: 1;
 `;
 
 const LinksContainer = styled.div`
