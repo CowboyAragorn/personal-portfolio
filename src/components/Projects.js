@@ -12,7 +12,9 @@ const ProjectsWrapper = styled.main`
 `;
 
 const SectionHeader = styled.h2`
+
   font-size: 5rem;
+
   grid-column: 1/-1;
 `;
 
@@ -20,7 +22,6 @@ const TotalContainer = styled.div`
   /* display: flex;
   flex-wrap: wrap;
   justify-content: center; */
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
   grid-template-rows: auto;
