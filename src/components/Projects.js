@@ -11,6 +11,10 @@ const ProjectsWrapper = styled.main`
   padding-top: ${(props) => props.theme.size.headerHeight};
 `;
 
+const SectionHeader = styled.h2`
+  font-size: 3rem;
+`;
+
 const TotalContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -25,10 +29,11 @@ const ProjectContainer = styled.div`
   align-items: center;
   //this ensures buttons on bottom and title are lined up, may have to limit sentence length to fix for real
   justify-content: space-between;
-  max-width: 500px;
+  box-sizing: border-box;
+  max-width: 510px;
   min-height: 400px;
   gap: 15px;
-  padding: 30px;
+  padding: 25px 30px 25px 30px;
   background-color: ${(props) => props.theme.colors.indigoDye};
   color: ${(props) => props.theme.colors.white};
 `;
@@ -39,9 +44,8 @@ const ProjectHeader = styled.h2`
 const ProjectText = styled.p`
   font-size: 1.5rem;
 `;
-
 const StyledScreenshot = styled.img`
-  max-width: 480px;
+  max-width: 450px;
   max-height: 400px;
 `;
 const IconContainer = styled.div`
@@ -69,6 +73,7 @@ const GithubIcon = styled.img`
 const Projects = (props) => {
   return (
     <ProjectsWrapper ref={props.reference}>
+      <SectionHeader>Projects</SectionHeader>
       <TotalContainer>
         {projects.map((project) => {
           return (
