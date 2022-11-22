@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import bearBackground from "../assets/bear-background.jpg";
-import { keyframes } from "styled-components";
 
 const HeroWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  min-width: 100%;
   gap: 25px;
   //padding-right: 100px;
   //min-height is set at 102 for the blur box-shadow effect,
