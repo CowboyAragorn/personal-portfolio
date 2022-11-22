@@ -129,11 +129,17 @@ table {
 }
 
 :root {
+  display: inline-block;
   height: 100%;
+  min-width: 100%;
 }
 body {
+  display: inline-block;
   height: 100%;
+  min-width: 100%;
 }
 #root {
+  display: inline-block;
   height: fit-content;
+  min-width: 100%;
 }

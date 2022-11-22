@@ -9,7 +9,7 @@ const HeroWrapper = styled.div`
   justify-content: center;
   align-items: flex-end;
   gap: 25px;
-  padding-right: 100px;
+  //padding-right: 100px;
   //min-height is set at 102 for the blur box-shadow effect,
   //the bottom border blurs into the projects page, removing the harsh edge
   min-height: 102vh;
@@ -33,6 +33,7 @@ const NameContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   justify-content: right;
+  margin-right: 100px;
 `;
 
 const AboutContainer = styled.div`
@@ -46,6 +47,7 @@ const AboutContainer = styled.div`
   border-radius: 15px 0 0 0;
   //TODO: make shadow more opaque
   box-shadow: 10px 5px 2px ${(props) => props.theme.colors.ming};
+  margin-right: 100px;
 `;
 
 const StyledName = styled.h2`

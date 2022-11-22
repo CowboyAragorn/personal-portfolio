@@ -13,12 +13,18 @@ const ProjectsWrapper = styled.main`
 
 const SectionHeader = styled.h2`
   font-size: 3rem;
+  grid-column: 1/-1;
 `;
 
 const TotalContainer = styled.div`
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; */
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(510px, 1fr));
+  grid-template-rows: auto;
+  justify-items: center;
   gap: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -73,8 +79,8 @@ const GithubIcon = styled.img`
 const Projects = (props) => {
   return (
     <ProjectsWrapper ref={props.reference}>
-      <SectionHeader>Projects</SectionHeader>
       <TotalContainer>
+        <SectionHeader>Projects</SectionHeader>
         {projects.map((project) => {
           return (
             <ProjectContainer>
