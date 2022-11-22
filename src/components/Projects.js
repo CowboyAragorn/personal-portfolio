@@ -41,7 +41,6 @@ const ProjectText = styled.p`
 
 const StyledScreenshot = styled.img`
   max-width: 480px;
-  margin-left: 10px;
   max-height: 400px;
 `;
 const IconContainer = styled.div`
