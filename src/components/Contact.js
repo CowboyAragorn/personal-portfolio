@@ -84,9 +84,20 @@ const InputFieldContainer = styled.div`
   gap: 5px;
 `;
 
+const LabelAndErrorContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
 const StyledLabel = styled.label`
   font-size: 1.5rem;
   color: ${(props) => props.theme.colors.white};
+`;
+const InputError = styled.p`
+  color: orange;
+  font-size: 1.2rem;
+  text-align: right;
 `;
 const StyledInput = styled.input`
   box-sizing: border-box;
@@ -105,11 +116,6 @@ const StyledInput = styled.input`
   &:focus {
     outline: none;
   }
-`;
-
-const InputError = styled.p`
-  color: orange;
-  font-size: 1.2rem;
 `;
 
 const StyledTextArea = styled.textarea`
@@ -234,14 +240,35 @@ const Contact = (props) => {
   };
 
   const nameValidator = (e) => {
-    setName(e.target.value);
     let currentInput = e.target.value;
     if (currentInput === "") {
-      setNameError("*Name must be at least 1 character*");
+      setNameError("*Name must be at least 1 character");
     } else if (currentInput.length > 20) {
-      setNameError("*Name must be less than 20 characters*");
+      setNameError("*Name must be less than 20 characters");
     } else {
       setNameError("✓");
+    }
+  };
+
+  const emailValidator = (e) => {
+    const regex =
+      /[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*/;
+    let currentInput = e.target.value;
+    if (regex.test(currentInput)) {
+      setEmailError("✓");
+    } else if (!regex.test(currentInput)) {
+      setEmailError("Must be at least 5 characters and include @");
+    }
+  };
+
+  const messageValidator = (e) => {
+    let currentInput = e.target.value;
+    if (currentInput === "") {
+      setMessageError("*Message must be at least 1 character");
+    } else if (currentInput.length > 400) {
+      setMessageError("*Message must be less than 400 characters");
+    } else {
+      setMessageError("✓");
     }
   };
 
@@ -261,37 +288,50 @@ const Contact = (props) => {
 
       <ContactFormContainer>
         <InputFieldContainer>
-          <StyledLabel htmlFor="name">Name *</StyledLabel>
+          <LabelAndErrorContainer>
+            <StyledLabel htmlFor="name">Name *</StyledLabel>
+            <InputError>{nameError}</InputError>
+          </LabelAndErrorContainer>
           <StyledInput
             id="name"
             placeholder="John Doe"
             value={name}
-            onChange={(e) => nameValidator(e)}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            onBlur={(e) => nameValidator(e)}
             required
           ></StyledInput>
-          <InputError>{nameError}</InputError>
         </InputFieldContainer>
         <InputFieldContainer>
-          <StyledLabel htmlFor="email">Email *</StyledLabel>
+          <LabelAndErrorContainer>
+            <StyledLabel htmlFor="email">Email *</StyledLabel>
+            <InputError>{emailError}</InputError>
+          </LabelAndErrorContainer>
           <StyledInput
             required
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onBlur={(e) => emailValidator(e)}
             placeholder="ExampleMail@gmail.com"
           ></StyledInput>
-          <InputError>{emailError}</InputError>
         </InputFieldContainer>
         <InputFieldContainer>
-          <StyledLabel htmlFor="message">Message *</StyledLabel>
+          <LabelAndErrorContainer>
+            <StyledLabel htmlFor="message">Message *</StyledLabel>
+            <InputError>{messageError}</InputError>
+          </LabelAndErrorContainer>
           <StyledTextArea
             required
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            onBlur={(e) => {
+              messageValidator(e);
+            }}
             placeholder="Your Message"
           ></StyledTextArea>
-          <InputError>{messageError}</InputError>
         </InputFieldContainer>
         <SubmitFormBtn
           onClick={(e) => {
