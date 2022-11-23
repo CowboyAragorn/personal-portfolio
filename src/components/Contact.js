@@ -107,6 +107,11 @@ const StyledInput = styled.input`
   }
 `;
 
+const InputError = styled.p`
+  color: orange;
+  font-size: 1.2rem;
+`;
+
 const StyledTextArea = styled.textarea`
   box-sizing: border-box;
   min-height: 170px;
@@ -147,23 +152,66 @@ const Contact = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [messageError, setMessageError] = useState("");
 
   const userCollectionRef = collection(db, "messageData");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addDoc(userCollectionRef, {
-      name: name,
-      email: email,
-      message: message,
-      sent: Timestamp.now(),
-    }).then(() => {
-      alert("form submitted successfully");
-      setName("");
-      setEmail("");
-      setMessage("");
-    });
-    //window.location.reload();
+    const formIsValid = validation();
+
+    if (formIsValid === false) {
+      console.log("form invalid");
+      return;
+    }
+    //these four lines are only for testing
+    console.log("form is valid");
+    setName("");
+    setEmail("");
+    setMessage("");
+    // //submits to form and resets form
+    // addDoc(userCollectionRef, {
+    //   name: name,
+    //   email: email,
+    //   message: message,
+    //   sent: Timestamp.now(),
+    // }).then(() => {
+    //   alert("form submitted successfully");
+    //   setName("");
+    //   setEmail("");
+    //   setMessage("");
+    // });
+  };
+
+  const validation = () => {
+    //if any of the inputs are invalid, the form will fail to submit and display the relevant error message//
+    let validity = true;
+    //name
+    if (name.length <= 0) {
+      validity = false;
+      setNameError("*Name must be at least 1 character*");
+    }
+    //if the error was previously displayed, but shouldn't be any longer
+    else if (nameError !== "") {
+      setNameError("");
+    }
+    //email
+    if (email.length <= 0) {
+      validity = false;
+      setEmailError("*Name must be at least 1 character*");
+    } else if (emailError !== "") {
+      setEmailError("");
+    }
+    //messages
+    if (message.length <= 0) {
+      validity = false;
+      setMessageError("*Please type a message*");
+    } else if (messageError !== "") {
+      setMessageError("");
+    }
+    return validity;
   };
 
   return (
@@ -182,6 +230,7 @@ const Contact = (props) => {
 
       <ContactFormContainer>
         <InputFieldContainer>
+          <InputError>{nameError}</InputError>
           <StyledLabel htmlFor="name">Name *</StyledLabel>
           <StyledInput
             id="name"
@@ -192,6 +241,7 @@ const Contact = (props) => {
           ></StyledInput>
         </InputFieldContainer>
         <InputFieldContainer>
+          <InputError>{emailError}</InputError>
           <StyledLabel htmlFor="email">Email *</StyledLabel>
           <StyledInput
             required
@@ -202,6 +252,7 @@ const Contact = (props) => {
           ></StyledInput>
         </InputFieldContainer>
         <InputFieldContainer>
+          <InputError>{messageError}</InputError>
           <StyledLabel htmlFor="message">Message *</StyledLabel>
           <StyledTextArea
             required
