@@ -155,14 +155,13 @@ const Contact = (props) => {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
-
   const userCollectionRef = collection(db, "messageData");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formIsValid = validation();
+    const validCheck = submitValidation();
 
-    if (formIsValid === false) {
+    if (validCheck === false) {
       console.log("form invalid");
       return;
     }
@@ -185,33 +184,65 @@ const Contact = (props) => {
     // });
   };
 
-  const validation = () => {
-    //if any of the inputs are invalid, the form will fail to submit and display the relevant error message//
-    let validity = true;
-    //name
-    if (name.length <= 0) {
-      validity = false;
+  //if the form is empty or if any error messages are displayed, display false
+  const submitValidation = () => {
+    if (name === "" || email === "" || message === "") {
+      if (nameError === "") {
+        setNameError("Fill in name field");
+      }
+      if (emailError === "") {
+        setEmailError("Fill in email field");
+      }
+      if (messageError === "") {
+        setMessageError("Fill in message field");
+      }
+      return false;
+    } else if (
+      nameError.length > 1 ||
+      emailError.length > 1 ||
+      messageError.length > 1
+    ) {
+      return false;
+    }
+
+    // //if any of the inputs are invalid, the form will fail to submit and display the relevant error message//
+    // let validity = true;
+    // //name
+    // if (name.length <= 0) {
+    //   validity = false;
+    //   setNameError("*Name must be at least 1 character*");
+    // }
+    // //if the error was previously displayed, but shouldn't be any longer
+    // else if (nameError !== "") {
+    //   setNameError("");
+    // }
+    // //email
+    // if (email.length <= 0) {
+    //   validity = false;
+    //   setEmailError("*Name must be at least 1 character*");
+    // } else if (emailError !== "") {
+    //   setEmailError("");
+    // }
+    // //messages
+    // if (message.length <= 0) {
+    //   validity = false;
+    //   setMessageError("*Please type a message*");
+    // } else if (messageError !== "") {
+    //   setMessageError("");
+    // }
+    // return validity;
+  };
+
+  const nameValidator = (e) => {
+    setName(e.target.value);
+    let currentInput = e.target.value;
+    if (currentInput === "") {
       setNameError("*Name must be at least 1 character*");
+    } else if (currentInput.length > 20) {
+      setNameError("*Name must be less than 20 characters*");
+    } else {
+      setNameError("✓");
     }
-    //if the error was previously displayed, but shouldn't be any longer
-    else if (nameError !== "") {
-      setNameError("");
-    }
-    //email
-    if (email.length <= 0) {
-      validity = false;
-      setEmailError("*Name must be at least 1 character*");
-    } else if (emailError !== "") {
-      setEmailError("");
-    }
-    //messages
-    if (message.length <= 0) {
-      validity = false;
-      setMessageError("*Please type a message*");
-    } else if (messageError !== "") {
-      setMessageError("");
-    }
-    return validity;
   };
 
   return (
@@ -230,18 +261,17 @@ const Contact = (props) => {
 
       <ContactFormContainer>
         <InputFieldContainer>
-          <InputError>{nameError}</InputError>
           <StyledLabel htmlFor="name">Name *</StyledLabel>
           <StyledInput
             id="name"
             placeholder="John Doe"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => nameValidator(e)}
             required
           ></StyledInput>
+          <InputError>{nameError}</InputError>
         </InputFieldContainer>
         <InputFieldContainer>
-          <InputError>{emailError}</InputError>
           <StyledLabel htmlFor="email">Email *</StyledLabel>
           <StyledInput
             required
@@ -250,9 +280,9 @@ const Contact = (props) => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="ExampleMail@gmail.com"
           ></StyledInput>
+          <InputError>{emailError}</InputError>
         </InputFieldContainer>
         <InputFieldContainer>
-          <InputError>{messageError}</InputError>
           <StyledLabel htmlFor="message">Message *</StyledLabel>
           <StyledTextArea
             required
@@ -261,6 +291,7 @@ const Contact = (props) => {
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Your Message"
           ></StyledTextArea>
+          <InputError>{messageError}</InputError>
         </InputFieldContainer>
         <SubmitFormBtn
           onClick={(e) => {

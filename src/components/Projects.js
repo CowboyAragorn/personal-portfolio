@@ -87,9 +87,9 @@ const Projects = (props) => {
     <ProjectsWrapper ref={props.reference}>
       <TotalContainer>
         <SectionHeader>Projects</SectionHeader>
-        {projects.map((project) => {
+        {projects.map((project, i) => {
           return (
-            <ProjectContainer>
+            <ProjectContainer key={i}>
               <ProjectHeader>{project.name}</ProjectHeader>
               <Icon href={project.liveURL} target="_blank" rel="noreferrer">
                 <StyledScreenshot
