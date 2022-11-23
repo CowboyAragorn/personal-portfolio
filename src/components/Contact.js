@@ -24,6 +24,9 @@ const ContactWrapper = styled.footer`
   text-align: left;
   padding-top: ${(props) => props.theme.size.headerHeight};
   box-shadow: 1px 1vh 8px ${(props) => props.theme.colors.gainsboro} inset;
+  @media (max-width: 1000px) {
+    align-items: center;
+  }
 `;
 
 const HeaderContainer = styled.div`
@@ -34,8 +37,11 @@ const HeaderContainer = styled.div`
   max-width: 800px;
   gap: 15px;
   //this margin is the same as contact form container margin
-  margin-left: 75px;
+  margin-left: 145px;
   margin-bottom: 20px;
+  @media (max-width: 1000px) {
+    margin-left: 0;
+  }
 `;
 
 const StyledHeader = styled.header`
@@ -61,7 +67,10 @@ const ContactFormContainer = styled.form`
   padding: 25px;
   border: none;
   border-radius: 15px;
-  margin-left: 75px;
+  margin-left: 145px;
+  @media (max-width: 1000px) {
+    margin-left: 0;
+  }
 `;
 
 const InputFieldContainer = styled.div`
