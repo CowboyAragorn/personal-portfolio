@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import treeBackground from "../assets/treeBackground.jpg";
+import { db } from "../firebase";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { useState } from "react";
 
 const ContactWrapper = styled.footer`
   //this has to be 90vh to prevent scrolling through bottom of page
@@ -141,6 +144,28 @@ const SubmitFormBtn = styled.button`
 //not implementing cookies, don't want to lose state on reload
 //would actually make this a form with validation otherwise
 const Contact = (props) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const userCollectionRef = collection(db, "messageData");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addDoc(userCollectionRef, {
+      name: name,
+      email: email,
+      message: message,
+      sent: Timestamp.now(),
+    }).then(() => {
+      alert("form submitted successfully");
+      setName("");
+      setEmail("");
+      setMessage("");
+    });
+    //window.location.reload();
+  };
+
   return (
     <ContactWrapper ref={props.reference}>
       <HeaderContainer>
@@ -154,16 +179,25 @@ const Contact = (props) => {
           connect on Linkedin.
         </StyledP>
       </HeaderContainer>
+
       <ContactFormContainer>
         <InputFieldContainer>
           <StyledLabel htmlFor="name">Name *</StyledLabel>
-          <StyledInput id="name" placeholder="John Doe" required></StyledInput>
+          <StyledInput
+            id="name"
+            placeholder="John Doe"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          ></StyledInput>
         </InputFieldContainer>
         <InputFieldContainer>
           <StyledLabel htmlFor="email">Email *</StyledLabel>
           <StyledInput
             required
             id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="ExampleMail@gmail.com"
           ></StyledInput>
         </InputFieldContainer>
@@ -172,10 +206,18 @@ const Contact = (props) => {
           <StyledTextArea
             required
             id="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             placeholder="Your Message"
           ></StyledTextArea>
         </InputFieldContainer>
-        <SubmitFormBtn>Submit</SubmitFormBtn>
+        <SubmitFormBtn
+          onClick={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          Submit
+        </SubmitFormBtn>
       </ContactFormContainer>
     </ContactWrapper>
   );
