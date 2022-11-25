@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import treeBackground from "../assets/treeBackground.jpg";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
@@ -50,13 +50,34 @@ const HeaderContainer = styled.div`
 const StyledHeader = styled.header`
   font-size: 4rem;
   margin: 0;
-  align-self: center;
+  align-self: left;
+  //font-weight: bold;
+  color: ${(props) => props.theme.colors.indigoDye};
 `;
 const StyledP = styled.p`
   text-align: center;
   font-size: 1.3rem;
   text-align: left;
 `;
+
+const shake = keyframes`
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+`;
+
 const ContactFormContainer = styled.form`
   display: flex;
   flex-wrap: wrap;
@@ -65,12 +86,25 @@ const ContactFormContainer = styled.form`
   max-width: 800px;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  background-color: ${(props) => props.theme.colors.ming};
-  padding: 25px;
+  gap: 20px;
+  //background-color: ${(props) => props.theme.colors.ming};
+  padding: 35px;
+  padding-left: 0;
+  padding-right: 0;
   border: none;
   border-radius: 15px;
   margin-left: 145px;
+
+  ${(props) => {
+    if (props.toggle) {
+      console.log("I got here");
+      return css`
+        animation-name: ${shake};
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+      `;
+    }
+  }}
   @media (max-width: 1000px) {
     margin-left: 0;
   }
@@ -89,15 +123,28 @@ const LabelAndErrorContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  //set minheight to 2 rem so that it isn't displaced when teh checkmark shows up
+  min-height: 2rem;
 `;
 const StyledLabel = styled.label`
   font-size: 1.5rem;
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.jet};
 `;
 const InputError = styled.p`
-  color: orange;
-  font-size: 1.2rem;
   text-align: right;
+  ${(props) => {
+    if (props.toggle.length === 1) {
+      return `
+        font-size: 2rem;
+        color: ${props.theme.colors.jet}
+      `;
+    } else {
+      return `
+      font-size: 1.2rem;
+      color: red;
+      `;
+    }
+  }}
 `;
 const StyledInput = styled.input`
   box-sizing: border-box;
@@ -107,14 +154,16 @@ const StyledInput = styled.input`
   color: ${(props) => props.theme.colors.jet};
   border: none;
   border-bottom: 1pt solid white;
-  padding: 12px;
+  padding: 15px;
   padding-left: 10px;
+  border-radius: 15px;
   &::placeholder {
     color: ${(props) => props.theme.colors.jet};
     opacity: 0.5;
   }
+  transition: transform 1s;
   &:focus {
-    outline: none;
+    transform: scale(1.1);
   }
 `;
 
@@ -127,14 +176,17 @@ const StyledTextArea = styled.textarea`
   background-color: ${(props) => props.theme.colors.white};
   border: none;
   border: 1pt solid white;
+  color: ${(props) => props.theme.colors.jet};
   font-size: 1.2rem;
   resize: none;
+  border-radius: 15px;
   &::placeholder {
     ${(props) => props.theme.colors.jet};
     opacity: 0.5;
   }
+  transition: transform 1s;
   &:focus {
-    outline: none;
+    transform: scale(1.05);
   }
 `;
 
@@ -147,8 +199,13 @@ const SubmitFormBtn = styled.button`
   font-weight: bold;
   text-decoration: none;
   width: 25%;
+  transition: transform 1s;
   &:hover {
     cursor: pointer;
+    transform: scale(1.1);
+  }
+  &:focus {
+    transform: scale(1.1);
   }
 `;
 //don't want to make this an actual form that submits because
@@ -161,14 +218,19 @@ const Contact = (props) => {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
+  const [error, setError] = useState(false);
   const userCollectionRef = collection(db, "messageData");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const validCheck = submitValidation();
-
     if (validCheck === false) {
       console.log("form invalid");
+      setError(true);
+      setTimeout(function () {
+        setError(false);
+      }, 1000);
+
       return;
     }
     //these four lines are only for testing
@@ -194,13 +256,13 @@ const Contact = (props) => {
   const submitValidation = () => {
     if (name === "" || email === "" || message === "") {
       if (nameError === "") {
-        setNameError("Fill in name field");
+        setNameError("*Fill in name field");
       }
       if (emailError === "") {
-        setEmailError("Fill in email field");
+        setEmailError("*Fill in email field");
       }
       if (messageError === "") {
-        setMessageError("Fill in message field");
+        setMessageError("*Fill in message field");
       }
       return false;
     } else if (
@@ -257,7 +319,7 @@ const Contact = (props) => {
     if (regex.test(currentInput)) {
       setEmailError("✓");
     } else if (!regex.test(currentInput)) {
-      setEmailError("Must be at least 5 characters and include @");
+      setEmailError("*Must be at least 5 characters and include @");
     }
   };
 
@@ -286,11 +348,11 @@ const Contact = (props) => {
         </StyledP>
       </HeaderContainer>
 
-      <ContactFormContainer>
+      <ContactFormContainer id="form" toggle={error}>
         <InputFieldContainer>
           <LabelAndErrorContainer>
             <StyledLabel htmlFor="name">Name *</StyledLabel>
-            <InputError>{nameError}</InputError>
+            <InputError toggle={nameError}>{nameError}</InputError>
           </LabelAndErrorContainer>
           <StyledInput
             id="name"
@@ -306,7 +368,7 @@ const Contact = (props) => {
         <InputFieldContainer>
           <LabelAndErrorContainer>
             <StyledLabel htmlFor="email">Email *</StyledLabel>
-            <InputError>{emailError}</InputError>
+            <InputError toggle={emailError}>{emailError}</InputError>
           </LabelAndErrorContainer>
           <StyledInput
             required
@@ -320,7 +382,7 @@ const Contact = (props) => {
         <InputFieldContainer>
           <LabelAndErrorContainer>
             <StyledLabel htmlFor="message">Message *</StyledLabel>
-            <InputError>{messageError}</InputError>
+            <InputError toggle={messageError}>{messageError}</InputError>
           </LabelAndErrorContainer>
           <StyledTextArea
             required
