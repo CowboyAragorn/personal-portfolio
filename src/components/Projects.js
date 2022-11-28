@@ -31,7 +31,8 @@ const TotalContainer = styled.div`
   padding-top: 30px;
   padding-bottom: 30px;
 `;
-const ProjectContainer = styled.div`
+
+const ProjectContainer = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,11 +41,15 @@ const ProjectContainer = styled.div`
   box-sizing: border-box;
   max-width: 520px;
   min-height: 400px;
+  text-decoration: none;
   gap: 15px;
   padding: 25px 35px 25px 35px;
   background-color: ${(props) => props.theme.colors.indigoDye};
   color: ${(props) => props.theme.colors.white};
-  border-radius: 15px 0 0 0;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 
 const ProjectHeader = styled.h2`
@@ -89,14 +94,17 @@ const Projects = (props) => {
         <SectionHeader>Projects</SectionHeader>
         {projects.map((project, i) => {
           return (
-            <ProjectContainer key={i}>
+            <ProjectContainer
+              key={i}
+              href={project.liveURL}
+              target="_blank"
+              rel="noreferrer"
+            >
               <ProjectHeader>{project.name}</ProjectHeader>
-              <Icon href={project.liveURL} target="_blank" rel="noreferrer">
-                <StyledScreenshot
-                  src={project.screenshot}
-                  alt={project.description}
-                />
-              </Icon>
+              <StyledScreenshot
+                src={project.screenshot}
+                alt={project.description}
+              />
               <ProjectText>{project.description}</ProjectText>
               <IconContainer>
                 <Icon href={project.github} target="_blank" rel="noreferrer">
