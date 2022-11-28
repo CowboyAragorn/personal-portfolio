@@ -1,16 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import "./loader.css";
+import { ClimbingBoxLoader } from "react-spinners";
+
+const LoaderWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${(props) => props.theme.colors.gainsboro};
+`;
 
 const Loader = () => {
   return (
-    <div className="loaderWrapper">
-      <div className="spinner-box">
-        <div className="circle-border">
-          <div class="circle-core"></div>
-        </div>
-      </div>
-    </div>
+    <LoaderWrapper>
+      <ClimbingBoxLoader size="20" color="#3c6e71ff"></ClimbingBoxLoader>
+    </LoaderWrapper>
   );
 };
 

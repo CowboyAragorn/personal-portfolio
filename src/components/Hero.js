@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import bearBackground from "../assets/images/bear-background.jpg";
+import bearBackground from "../assets/images/bearBackgroundResized.jpg";
 
 const HeroWrapper = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const HeroWrapper = styled.div`
   //the bottom border blurs into the projects page, removing the harsh edge
   min-height: 102vh;
   background-color: ${(props) => props.theme.colors.jet};
-  background-image: linear-gradient(
+  background: linear-gradient(
       to right,
       rgba(255, 0, 0, 0),
       65%,

@@ -27,7 +27,7 @@ const projects = [
     name: "Knight's Travails",
     screenshot: require("./assets/images/knightScreenshot.webp"),
     description:
-      "Implementation of a graph through an adjacency list and level order traversal to find endpoints. Displays the shortest distance that a knight can travel between two points on a chessboard.",
+      "Implementation of a graph through an adjacency list and level order traversal to find endpoints. Displays shortest distance a knight can travel between two points on the board.",
     github: "https://github.com/CowboyAragorn/Knights-Travails",
     liveURL: "https://cowboyaragorn.github.io/Knights-Travails/",
   },

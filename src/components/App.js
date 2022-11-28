@@ -17,21 +17,15 @@ function App() {
   const projectsRef = useRef();
   const contactRef = useRef();
 
-  function fakeRequest() {
-    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
-  }
-
   useEffect(() => {
-    fakeRequest().then(() => {
-      const el = document.querySelector(".loaderWrapper");
-      if (el) {
-        el.remove();
-        setLoading(!isLoading);
-      }
-    });
+    setTimeout(() => setLoading(false), 3000);
   }, []);
 
-  return (
+  return isLoading ? (
+    <ThemeProvider theme={theme}>
+      <Loader />
+    </ThemeProvider>
+  ) : (
     <ThemeProvider theme={theme}>
       <Header
         heroClick={scrollToDiv.bind(this, heroRef)}
