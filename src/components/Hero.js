@@ -53,16 +53,19 @@ const AboutContainer = styled.div`
 const StyledName = styled.h2`
   font-size: 5rem;
   color: ${(props) => props.theme.colors.jet};
+  font-family: ${(props) => props.theme.font.header};
+  font-weight: normal;
 `;
 
 const StyledTitle = styled.p`
   font-size: 2.5rem;
   //transparent Ming
-  color: rgb(60, 110, 113, 0.5);
+  color: rgb(60, 110, 113, 0.6);
 `;
 const StyledBoldIntro = styled.h3`
   font-size: 1.6rem;
-  color: ${(props) => props.theme.colors.ming};
+  color: rgb(60, 110, 113, 0.6);
+  font-style: italic;
 `;
 const StyledP = styled.p`
   font-size: 1.5rem;

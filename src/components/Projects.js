@@ -16,6 +16,8 @@ const ProjectsWrapper = styled.main`
 const SectionHeader = styled.h2`
   font-size: 5rem;
   grid-column: 1/-1;
+  font-family: ${(props) => props.theme.font.header};
+  font-weight: normal;
 `;
 
 const TotalContainer = styled.div`
@@ -52,11 +54,13 @@ const ProjectContainer = styled.a`
   }
 `;
 
-const ProjectHeader = styled.h2`
+const ProjectHeader = styled.h3`
   font-size: 3rem;
   //color: ${(props) => props.theme.colors.white};
   //background-color: ${(props) => props.theme.colors.gainsboro};
   padding: 5px;
+  font-style: italic;
+  font-weight: normal;
 `;
 const ProjectText = styled.p`
   font-size: 1.5rem;

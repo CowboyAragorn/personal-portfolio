@@ -13,6 +13,9 @@ const theme = {
     headerHeight: "10vh",
     sectionHeight: "100vh",
   },
+  font: {
+    header: "modernNo20",
+  },
   spacing: {},
 };
 

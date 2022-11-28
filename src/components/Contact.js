@@ -47,12 +47,14 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const StyledHeader = styled.header`
-  font-size: 4rem;
+const StyledHeader = styled.h2`
+  font-size: 5rem;
   margin: 0;
   align-self: left;
   //font-weight: bold;
-  color: ${(props) => props.theme.colors.indigoDye};
+  color: ${(props) => props.theme.colors.jet};
+  font-family: ${(props) => props.theme.font.header};
+  font-weight: normal;
 `;
 const StyledP = styled.p`
   text-align: center;
