@@ -51,24 +51,24 @@ const AboutContainer = styled.div`
 `;
 
 const StyledName = styled.h2`
-  font-size: 5rem;
+  font-size: ${(props) => props.theme.fontSize.sectionHeader};
   color: ${(props) => props.theme.colors.jet};
   font-family: ${(props) => props.theme.font.header};
   font-weight: normal;
 `;
 
 const StyledTitle = styled.p`
-  font-size: 2.5rem;
+  font-size: ${(props) => props.theme.fontSize.subHeader};
   //transparent Ming
   color: rgb(60, 110, 113, 0.6);
 `;
 const StyledBoldIntro = styled.h3`
-  font-size: 1.6rem;
+  font-size: ${(props) => props.theme.fontSize.text};
   color: rgb(60, 110, 113, 0.6);
   font-style: italic;
 `;
 const StyledP = styled.p`
-  font-size: 1.5rem;
+  font-size: ${(props) => props.theme.fontSize.text};
   color: ${(props) => props.theme.colors.jet};
 `;
 

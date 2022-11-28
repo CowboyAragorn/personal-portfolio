@@ -14,7 +14,7 @@ const ProjectsWrapper = styled.main`
 `;
 
 const SectionHeader = styled.h2`
-  font-size: 5rem;
+  font-size: ${(props) => props.theme.fontSize.sectionHeader};
   grid-column: 1/-1;
   font-family: ${(props) => props.theme.font.header};
   font-weight: normal;
@@ -55,15 +55,13 @@ const ProjectContainer = styled.a`
 `;
 
 const ProjectHeader = styled.h3`
-  font-size: 3rem;
-  //color: ${(props) => props.theme.colors.white};
-  //background-color: ${(props) => props.theme.colors.gainsboro};
+  font-size: ${(props) => props.theme.fontSize.subHeader};
   padding: 5px;
   font-style: italic;
   font-weight: normal;
 `;
 const ProjectText = styled.p`
-  font-size: 1.5rem;
+  font-size: ${(props) => props.theme.fontSize.text};
 `;
 const StyledScreenshot = styled.img`
   max-width: 450px;

@@ -2,7 +2,7 @@ import Hero from "./Hero";
 import Projects from "./Projects";
 import Header from "./Header";
 import { ThemeProvider } from "styled-components";
-import theme from "../assets/theme";
+import theme from "../theme";
 import { useRef, useState, useEffect } from "react";
 import Contact from "./Contact";
 import Loader from "./Loader";
