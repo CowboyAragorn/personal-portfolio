@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
-import treeBackground from "../assets/treeBackground.jpg";
+import treeBackground from "../assets/images/treeBackground.webp";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { useState } from "react";

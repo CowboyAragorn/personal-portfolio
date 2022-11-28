@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import bearBackground from "../assets/bear-background.jpg";
+import bearBackground from "../assets/images/bear-background.jpg";
 
 const HeroWrapper = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const HeroWrapper = styled.div`
   //min-height is set at 102 for the blur box-shadow effect,
   //the bottom border blurs into the projects page, removing the harsh edge
   min-height: 102vh;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.jet};
   background-image: linear-gradient(
       to right,
       rgba(255, 0, 0, 0),

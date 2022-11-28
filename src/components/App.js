@@ -3,16 +3,33 @@ import Projects from "./Projects";
 import Header from "./Header";
 import { ThemeProvider } from "styled-components";
 import theme from "../assets/theme";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Contact from "./Contact";
+import Loader from "./Loader";
 
 function App() {
+  const [isLoading, setLoading] = useState(true);
+
   const scrollToDiv = (ref) => {
     ref.current.scrollIntoView({ alignToTop: true, behavior: "smooth" });
   };
   const heroRef = useRef();
   const projectsRef = useRef();
   const contactRef = useRef();
+
+  function fakeRequest() {
+    return new Promise((resolve) => setTimeout(() => resolve(), 2500));
+  }
+
+  useEffect(() => {
+    fakeRequest().then(() => {
+      const el = document.querySelector(".loaderWrapper");
+      if (el) {
+        el.remove();
+        setLoading(!isLoading);
+      }
+    });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
