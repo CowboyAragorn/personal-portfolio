@@ -5,6 +5,8 @@ import githubSVG from "../assets/github-original.svg";
 import compassSVG from "../assets/compassSVG.svg";
 
 const ProjectsWrapper = styled.main`
+  display: flex;
+  justify-content: center;
   min-height: ${(props) => props.theme.size.sectionHeight};
   background-color: ${(props) => props.theme.colors.gainsboro};
   //has to have padding equal to headersize for scroll to align smoothly
@@ -12,25 +14,25 @@ const ProjectsWrapper = styled.main`
 `;
 
 const SectionHeader = styled.h2`
-
   font-size: 5rem;
-
   grid-column: 1/-1;
 `;
 
 const TotalContainer = styled.div`
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: center; */
+  //max widthing to 100% allows to put margins on both sides of the grid while also left aligning the projects header above the first project
+  max-width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
   grid-template-rows: auto;
-  justify-items: center;
+  justify-items: left;
+  //margin-left: 75px;
+  //justify-items: center;
   gap: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
 `;
-const ProjectContainer = styled.div`
+
+const ProjectContainer = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,15 +41,22 @@ const ProjectContainer = styled.div`
   box-sizing: border-box;
   max-width: 520px;
   min-height: 400px;
+  text-decoration: none;
   gap: 15px;
   padding: 25px 35px 25px 35px;
   background-color: ${(props) => props.theme.colors.indigoDye};
   color: ${(props) => props.theme.colors.white};
-  border-radius: 15px 0 0 0;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 
 const ProjectHeader = styled.h2`
   font-size: 3rem;
+  //color: ${(props) => props.theme.colors.white};
+  //background-color: ${(props) => props.theme.colors.gainsboro};
+  padding: 5px;
 `;
 const ProjectText = styled.p`
   font-size: 1.5rem;
@@ -83,16 +92,19 @@ const Projects = (props) => {
     <ProjectsWrapper ref={props.reference}>
       <TotalContainer>
         <SectionHeader>Projects</SectionHeader>
-        {projects.map((project) => {
+        {projects.map((project, i) => {
           return (
-            <ProjectContainer>
+            <ProjectContainer
+              key={i}
+              href={project.liveURL}
+              target="_blank"
+              rel="noreferrer"
+            >
               <ProjectHeader>{project.name}</ProjectHeader>
-              <Icon href={project.liveURL} target="_blank" rel="noreferrer">
-                <StyledScreenshot
-                  src={project.screenshot}
-                  alt={project.description}
-                />
-              </Icon>
+              <StyledScreenshot
+                src={project.screenshot}
+                alt={project.description}
+              />
               <ProjectText>{project.description}</ProjectText>
               <IconContainer>
                 <Icon href={project.github} target="_blank" rel="noreferrer">
