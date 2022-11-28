@@ -88,7 +88,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  font-family: inherit;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -127,12 +127,26 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+button,
+input,
+textarea {
+  font-family: inherit;
+}
 
+@font-face {
+  font-family: modernNo20;
+  src: url(./fonts/modernNo20.ttf);
+}
+@font-face {
+  font-family: corbel;
+  src: url(./fonts/corbel.ttf);
+}
 :root {
   display: inline-block;
   min-height: 100%;
   min-width: 100%;
 }
+
 body {
   display: inline-block;
   min-height: 100%;
@@ -142,4 +156,9 @@ body {
   display: inline-block;
   min-height: 100%;
   min-width: 100%;
+  font-family: "corbel";
+}
+
+.font-family-corbel {
+  font-family: "corbel";
 }
