@@ -3,7 +3,7 @@ import styled, { css, keyframes } from "styled-components";
 import treeBackground from "../assets/images/treeBackground.webp";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const ContactWrapper = styled.footer`
   //this has to be 90vh to prevent scrolling through bottom of page
@@ -109,6 +109,35 @@ const ContactFormContainer = styled.form`
   }}
   @media (max-width: 1000px) {
     margin-left: 0;
+  }
+`;
+const SuccessMessageContainer = styled.div`
+  display: flex;
+  background-color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.ming};
+  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  border: 1pt solid ${(props) => props.theme.colors.ming};
+  transition: transform 1.5s;
+  &.fade {
+    transform: scale(0);
+  }
+`;
+
+const StyledCloseButton = styled.button`
+  background-color: ${(props) => props.theme.colors.white};
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50%;
+  transition: transform 1s;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
   }
 `;
 
@@ -220,11 +249,14 @@ const Contact = (props) => {
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
   const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
   const userCollectionRef = collection(db, "messageData");
+  const successMessage = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const validCheck = submitValidation();
+    //if form is invalid, shake and refuse
     if (validCheck === false) {
       console.log("form invalid");
       setError(true);
@@ -234,23 +266,22 @@ const Contact = (props) => {
 
       return;
     }
-    //these four lines are only for testing
-    console.log("form is valid");
-    setName("");
-    setEmail("");
-    setMessage("");
-    // //submits to form and resets form
-    // addDoc(userCollectionRef, {
-    //   name: name,
-    //   email: email,
-    //   message: message,
-    //   sent: Timestamp.now(),
-    // }).then(() => {
-    //   alert("form submitted successfully");
-    //   setName("");
-    //   setEmail("");
-    //   setMessage("");
-    // });
+    //submits to form and resets form
+    addDoc(userCollectionRef, {
+      name: name,
+      email: email,
+      message: message,
+      sent: Timestamp.now(),
+    }).then(() => {
+      // alert("form submitted successfully");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setNameError("");
+      setEmailError("");
+      setMessageError("");
+      setSuccess(true);
+    });
   };
 
   //if the form is empty or if any error messages are displayed, display false
@@ -273,33 +304,6 @@ const Contact = (props) => {
     ) {
       return false;
     }
-
-    // //if any of the inputs are invalid, the form will fail to submit and display the relevant error message//
-    // let validity = true;
-    // //name
-    // if (name.length <= 0) {
-    //   validity = false;
-    //   setNameError("*Name must be at least 1 character*");
-    // }
-    // //if the error was previously displayed, but shouldn't be any longer
-    // else if (nameError !== "") {
-    //   setNameError("");
-    // }
-    // //email
-    // if (email.length <= 0) {
-    //   validity = false;
-    //   setEmailError("*Name must be at least 1 character*");
-    // } else if (emailError !== "") {
-    //   setEmailError("");
-    // }
-    // //messages
-    // if (message.length <= 0) {
-    //   validity = false;
-    //   setMessageError("*Please type a message*");
-    // } else if (messageError !== "") {
-    //   setMessageError("");
-    // }
-    // return validity;
   };
 
   const nameValidator = (e) => {
@@ -335,6 +339,14 @@ const Contact = (props) => {
     }
   };
 
+  const handleCloseSuccessPopup = () => {
+    successMessage.current.classList.add("fade");
+    setTimeout(() => {
+      setSuccess(false);
+      successMessage.current.classList.remove("fade");
+    }, 1500);
+  };
+
   return (
     <ContactWrapper ref={props.reference}>
       <HeaderContainer>
@@ -348,9 +360,20 @@ const Contact = (props) => {
           connect on Linkedin.
         </StyledP>
       </HeaderContainer>
-
       <ContactFormContainer id="form" toggle={error}>
         <InputFieldContainer>
+          {success ? (
+            <SuccessMessageContainer ref={successMessage}>
+              <StyledP>Your Message was sent!</StyledP>
+              <StyledCloseButton
+                onClick={handleCloseSuccessPopup}
+                alt="closeSuccessMessage"
+                type="button"
+              >
+                X
+              </StyledCloseButton>
+            </SuccessMessageContainer>
+          ) : null}
           <LabelAndErrorContainer>
             <StyledLabel htmlFor="name">Name *</StyledLabel>
             <InputError toggle={nameError}>{nameError}</InputError>
