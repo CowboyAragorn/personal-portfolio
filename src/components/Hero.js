@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import bearBackground from "../assets/bear-background.jpg";
+import bearBackground from "../assets/images/bearBackgroundResized.jpg";
 
 const HeroWrapper = styled.div`
   display: flex;
@@ -13,8 +13,8 @@ const HeroWrapper = styled.div`
   //min-height is set at 102 for the blur box-shadow effect,
   //the bottom border blurs into the projects page, removing the harsh edge
   min-height: 102vh;
-  background-color: white;
-  background-image: linear-gradient(
+  background-color: ${(props) => props.theme.colors.jet};
+  background: linear-gradient(
       to right,
       rgba(255, 0, 0, 0),
       65%,
@@ -51,21 +51,24 @@ const AboutContainer = styled.div`
 `;
 
 const StyledName = styled.h2`
-  font-size: 5rem;
+  font-size: ${(props) => props.theme.fontSize.sectionHeader};
   color: ${(props) => props.theme.colors.jet};
+  font-family: ${(props) => props.theme.font.header};
+  font-weight: normal;
 `;
 
 const StyledTitle = styled.p`
-  font-size: 2.5rem;
+  font-size: ${(props) => props.theme.fontSize.subHeader};
   //transparent Ming
-  color: rgb(60, 110, 113, 0.5);
+  color: rgb(60, 110, 113, 0.6);
 `;
 const StyledBoldIntro = styled.h3`
-  font-size: 1.6rem;
-  color: ${(props) => props.theme.colors.ming};
+  font-size: ${(props) => props.theme.fontSize.text};
+  color: rgb(60, 110, 113, 0.6);
+  font-style: italic;
 `;
 const StyledP = styled.p`
-  font-size: 1.5rem;
+  font-size: ${(props) => props.theme.fontSize.text};
   color: ${(props) => props.theme.colors.jet};
 `;
 

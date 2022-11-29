@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
-import treeBackground from "../assets/treeBackground.jpg";
+import treeBackground from "../assets/images/treeBackground.webp";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { useState } from "react";
@@ -47,16 +47,18 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const StyledHeader = styled.header`
-  font-size: 4rem;
+const SectionHeader = styled.h2`
+  font-size: ${(props) => props.theme.fontSize.sectionHeader};
   margin: 0;
   align-self: left;
   //font-weight: bold;
-  color: ${(props) => props.theme.colors.indigoDye};
+  color: ${(props) => props.theme.colors.jet};
+  font-family: ${(props) => props.theme.font.header};
+  font-weight: normal;
 `;
 const StyledP = styled.p`
   text-align: center;
-  font-size: 1.3rem;
+  font-size: ${(props) => props.theme.fontSize.smallText};
   text-align: left;
 `;
 
@@ -127,7 +129,7 @@ const LabelAndErrorContainer = styled.div`
   min-height: 2rem;
 `;
 const StyledLabel = styled.label`
-  font-size: 1.5rem;
+  font-size: ${(props) => props.theme.fontSize.text};
   color: ${(props) => props.theme.colors.jet};
 `;
 const InputError = styled.p`
@@ -140,7 +142,7 @@ const InputError = styled.p`
       `;
     } else {
       return `
-      font-size: 1.2rem;
+      font-size:  ${(props) => props.theme.fontSize.smallText};;
       color: red;
       `;
     }
@@ -149,7 +151,7 @@ const InputError = styled.p`
 const StyledInput = styled.input`
   box-sizing: border-box;
   min-width: 500px;
-  font-size: 1.2rem;
+  font-size: ${(props) => props.theme.fontSize.smallText};
   background-color: ${(props) => props.theme.colors.white};
   color: ${(props) => props.theme.colors.jet};
   border: none;
@@ -171,13 +173,12 @@ const StyledTextArea = styled.textarea`
   box-sizing: border-box;
   min-height: 170px;
   min-width: 500px;
-  font-size: 15px;
+  font-size: ${(props) => props.theme.fontSize.smallText};
   padding: 10px;
   background-color: ${(props) => props.theme.colors.white};
   border: none;
   border: 1pt solid white;
   color: ${(props) => props.theme.colors.jet};
-  font-size: 1.2rem;
   resize: none;
   border-radius: 15px;
   &::placeholder {
@@ -193,7 +194,7 @@ const StyledTextArea = styled.textarea`
 //TODO: make checkoutBtn an importable styled component for contact, payment container, and shop
 const SubmitFormBtn = styled.button`
   padding: 14px;
-  font-size: 1.3rem;
+  font-size: ${(props) => props.theme.fontSize.smallText};
   border-radius: 5px;
   border: none;
   font-weight: bold;
@@ -337,13 +338,13 @@ const Contact = (props) => {
   return (
     <ContactWrapper ref={props.reference}>
       <HeaderContainer>
-        <StyledHeader>Talk To Me</StyledHeader>
+        <SectionHeader>Talk To Me</SectionHeader>
         <StyledP>
           I am currently pounding the pavement, on the hunt, grinding. I am
           looking for a job.
         </StyledP>
         <StyledP>
-          If you wish to discuss an opportunity write a message down below or
+          If you wish to discuss an opportunity, write a message down below or
           connect on Linkedin.
         </StyledP>
       </HeaderContainer>
@@ -356,7 +357,7 @@ const Contact = (props) => {
           </LabelAndErrorContainer>
           <StyledInput
             id="name"
-            placeholder="John Doe"
+            placeholder="Your Name"
             value={name}
             onChange={(e) => {
               setName(e.target.value);
@@ -376,7 +377,7 @@ const Contact = (props) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onBlur={(e) => emailValidator(e)}
-            placeholder="ExampleMail@gmail.com"
+            placeholder="ExampleMail@mail.com"
           ></StyledInput>
         </InputFieldContainer>
         <InputFieldContainer>

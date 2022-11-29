@@ -1,7 +1,7 @@
 const projects = [
   {
     name: "React Router Shop",
-    screenshot: require("./assets/storePageScreen.png"),
+    screenshot: require("./assets/images/storePageScreen.webp"),
     description:
       "React store page with working cart and multiple pages utilizing react router and styled components.",
     github: "https://github.com/CowboyAragorn/shopping-cart",
@@ -9,7 +9,7 @@ const projects = [
   },
   {
     name: "Memory Card Game",
-    screenshot: require("./assets/memoryScreenshot.png"),
+    screenshot: require("./assets/images/memoryScreenshot.webp"),
     description:
       "React project using functional components, state, and props. Click every book once without clicking any book twice. Saves Current and best scores.",
     github: "https://github.com/CowboyAragorn/memory-card-game",
@@ -25,15 +25,15 @@ const projects = [
   },
   {
     name: "Knight's Travails",
-    screenshot: require("./assets/knightScreenshot.png"),
+    screenshot: require("./assets/images/knightScreenshot.webp"),
     description:
-      "Implementation of a graph through an adjacency list and level order traversal to find endpoints. Displays the shortest distance that a knight can travel between two points on a chessboard.",
+      "Implementation of a graph through an adjacency list and level order traversal to find endpoints. Displays shortest distance a knight can travel between two points on the board.",
     github: "https://github.com/CowboyAragorn/Knights-Travails",
     liveURL: "https://cowboyaragorn.github.io/Knights-Travails/",
   },
   {
     name: "Binary Search Tree",
-    screenshot: require("./assets/binaryScreenshot.png"),
+    screenshot: require("./assets/images/binaryScreenshot.webp"),
     description:
       "Building a balanced binary search tree from a sorted array of data, then performing various insertion, deletion, search, deliberate unbalancing and rebalancing methods.",
     github: "https://github.com/CowboyAragorn/Binary-Search-Tree",
@@ -41,7 +41,7 @@ const projects = [
   },
   {
     name: "Linked List",
-    screenshot: require("./assets/linkedListScreenshot.png"),
+    screenshot: require("./assets/images/linkedListScreenshot.webp"),
     description:
       "Create a linked list constructor and methods to append, prepend, find size, index of node, insert nodes, and remove nodes.",
     github: "https://github.com/CowboyAragorn/Linked-List",
@@ -49,7 +49,7 @@ const projects = [
   },
   {
     name: "API Weather App",
-    screenshot: require("./assets/weatherScreenshot.png"),
+    screenshot: require("./assets/images/weatherScreenshot.webp"),
     description:
       "Pulls current weather from OpenWeatherMap API and displays daily and weekly predictions. Location can be changed dynamically to display weather from cities globally.",
     github: "https://github.com/CowboyAragorn/Weather-App",
@@ -57,14 +57,14 @@ const projects = [
   },
   {
     name: "Sign Up Form",
-    screenshot: require("./assets/signupScreenshot.png"),
+    screenshot: require("./assets/images/signupScreenshot.webp"),
     description: "Mock sign up form utilizing front-end form validation.",
     github: "https://github.com/CowboyAragorn/Sign-up-Form",
     liveURL: "https://cowboyaragorn.github.io/Sign-up-Form/",
   },
   {
     name: "Todo List",
-    screenshot: require("./assets/todoScreenshot.png"),
+    screenshot: require("./assets/images/todoScreenshot.webp"),
     description:
       "Webpack bundled application. Create, edit, and delete lists. Each list has tasks that can be crossed out, deleted, and rearranged. Each task has its own notes and date.   Local persistence.",
     github: "https://github.com/CowboyAragorn/Todo-List",
