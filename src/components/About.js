@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import greatLookingGuy from "../assets/images/greatLookingGuy.jpg";
 
 const Icons = [
   { className: "devicon-javascript-plain", name: "Javascript" },
@@ -18,7 +19,7 @@ const ContactWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.gainsboro};
   color: ${(props) => props.theme.colors.jet};
   text-align: left;
-  padding-top: ${(props) => props.theme.size.headerHeight};
+  padding-top: 10vh;
 `;
 const HeaderContainer = styled.div`
   display: flex;
@@ -44,21 +45,25 @@ const SectionHeader = styled.h2`
 `;
 const AboutContainer = styled.div`
   display: flex;
+  justify-content: space-between;
+  margin-left: ${(props) => props.theme.spacing.marginLR};
+  margin-right: ${(props) => props.theme.spacing.marginLR};
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    margin-left: 50px;
+  }
 `;
 const AboutTextContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 20px;
   /* background-color: ${(props) => props.theme.colors.indigoDye}; */
   color: ${(props) => props.theme.colors.jet};
   font-size: ${(props) => props.theme.fontSize.smallText};
-  max-width: 900px;
+  max-width: 1000px;
   min-height: 350px;
   line-height: 1.5;
   letter-spacing: 0.5px;
-  margin-left: 120px;
-  @media (max-width: 1000px) {
-    margin-left: 50px;
-  }
 `;
 const FollowingP = styled.p``;
 
@@ -68,7 +73,7 @@ const TechIconsContainer = styled.div`
   justify-items: center;
   max-width: 500px;
   margin-top: 20px;
-  gap: 30px;
+  gap: 15px;
 `;
 
 const IconFlexContainer = styled.div`
@@ -84,6 +89,12 @@ const Icon = styled.div`
 `;
 const IconLabel = styled.p`
   font-size: 1rem;
+`;
+const PersonalPhoto = styled.img`
+  max-width: 600px;
+  object-fit: contain;
+  align-self: flex-start;
+  border-radius: 15px;
 `;
 
 const About = (props) => {
@@ -101,16 +112,16 @@ const About = (props) => {
             material. I was hankering for a new challenge, and web development
             was a natural fit.
           </p>
-          <br></br>
           <FollowingP>
             I say a new challenge, but my first programming project was not made
             in the fall of 2021. For that you would have to go back to the 8th
             grade, when I was modding Medieval II: Total War in Notepad++ to
             make larger farms lower revolt risk. I thought it was more
             historically accurate. My projects today tend to be much more
-            complex and try to solve (arguably) larger problems.
+            complex and try to solve (arguably) larger problems. In my free time
+            I enjoy reading, weightlifting, spending time with family, and
+            hiking.
           </FollowingP>
-          <br></br>
           <FollowingP>
             Professionally, I have been volunteering as a developer with the
             Gainesville, FL brigade of Code for America since July 2022. We are
@@ -118,7 +129,6 @@ const About = (props) => {
             stages of developing a "resource finder" application to help
             underserved citizens easily find city resources.
           </FollowingP>
-          <br></br>
           <p>Here are a few of the technologies I have been using recently:</p>
           <TechIconsContainer>
             {Icons.map((icon) => {
@@ -131,6 +141,10 @@ const About = (props) => {
             })}
           </TechIconsContainer>
         </AboutTextContainer>
+        <PersonalPhoto
+          src={greatLookingGuy}
+          alt="photo of Jacob Potter, very handsome"
+        ></PersonalPhoto>
       </AboutContainer>
     </ContactWrapper>
   );

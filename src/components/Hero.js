@@ -16,7 +16,7 @@ const HeroWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.jet};
   background: linear-gradient(
       to right,
-      rgba(255, 0, 0, 0),
+      rgba(0, 0, 0, 0),
       65%,
       rgba(255, 255, 255, 1) 83% 100%
     ),
