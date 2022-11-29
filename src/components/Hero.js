@@ -83,7 +83,7 @@ const Hero = (props) => {
         <StyledBoldIntro>HI, I'M JACOB.</StyledBoldIntro>
         <StyledP>
           I'm an aspiring web developer living in Tampa, Florida. Explore below
-          for the latest about me and my projects.
+          for more about me and my projects.
         </StyledP>
         <StyledBoldIntro>THANKS FOR VISITING!</StyledBoldIntro>
       </AboutContainer>

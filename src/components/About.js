@@ -69,7 +69,7 @@ const FollowingP = styled.p``;
 
 const TechIconsContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   justify-items: center;
   max-width: 500px;
   margin-top: 20px;
@@ -117,17 +117,22 @@ const About = (props) => {
             in the fall of 2021. For that you would have to go back to the 8th
             grade, when I was modding Medieval II: Total War in Notepad++ to
             make larger farms lower revolt risk. I thought it was more
-            historically accurate. My projects today tend to be much more
-            complex and try to solve (arguably) larger problems. In my free time
-            I enjoy reading, weightlifting, spending time with family, and
-            hiking.
+            historically accurate. My projects today tend to be a little more
+            complex and try to solve (arguably) larger problems.
+          </FollowingP>
+          <FollowingP>
+            I graduated from the University in Florida in 2019 with a bachelor's
+            degree in history and minor in English. I am specifically interested
+            in the 18th and 19th century, and more recently have been on a
+            French Revolution kick. In my free time I enjoy reading,
+            weightlifting, spending time with family, and camping.
           </FollowingP>
           <FollowingP>
             Professionally, I have been volunteering as a developer with the
             Gainesville, FL brigade of Code for America since July 2022. We are
             working directly with the city government and are in the final
             stages of developing a "resource finder" application to help
-            underserved citizens easily find city resources.
+            under-served citizens easily find city resources.
           </FollowingP>
           <p>Here are a few of the technologies I have been using recently:</p>
           <TechIconsContainer>

@@ -21,17 +21,20 @@ const SectionHeader = styled.h2`
 `;
 
 const TotalContainer = styled.div`
-  //max widthing to 100% allows to put margins on both sides of the grid while also left aligning the projects header above the first project
-  max-width: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
   grid-template-rows: auto;
   justify-items: left;
-  //margin-left: 75px;
+  margin-left: ${(props) => props.theme.spacing.marginLR};
+  margin-right: ${(props) => props.theme.spacing.marginLR};
   //justify-items: center;
   gap: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
+  @media (max-width: 1000px) {
+    margin-left: 50px;
+  }
 `;
 
 const ProjectContainer = styled.a`
@@ -66,6 +69,7 @@ const ProjectText = styled.p`
 const StyledScreenshot = styled.img`
   max-width: 450px;
   max-height: 400px;
+  border-radius: 15px;
 `;
 const IconContainer = styled.div`
   display: grid;
