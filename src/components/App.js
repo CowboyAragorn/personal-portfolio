@@ -1,11 +1,11 @@
 import Hero from "./Hero";
+import About from "./About";
 import Projects from "./Projects";
 import Header from "./Header";
 import { ThemeProvider } from "styled-components";
 import theme from "../theme";
 import { useRef, useState, useEffect } from "react";
 import Contact from "./Contact";
-import Loader from "./Loader";
 
 function App() {
   const [isLoading, setLoading] = useState(true);
@@ -14,6 +14,7 @@ function App() {
     ref.current.scrollIntoView({ alignToTop: true, behavior: "smooth" });
   };
   const heroRef = useRef();
+  const aboutRef = useRef();
   const projectsRef = useRef();
   const contactRef = useRef();
 
@@ -25,10 +26,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <Header
         heroClick={scrollToDiv.bind(this, heroRef)}
+        aboutClick={scrollToDiv.bind(this, aboutRef)}
         projectsClick={scrollToDiv.bind(this, projectsRef)}
         contactClick={scrollToDiv.bind(this, contactRef)}
       />
       <Hero reference={heroRef} />
+      <About reference={aboutRef} />
       <Projects reference={projectsRef} />
       <Contact reference={contactRef} />
     </ThemeProvider>
