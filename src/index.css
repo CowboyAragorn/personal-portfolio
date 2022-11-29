@@ -135,11 +135,11 @@ textarea {
 
 @font-face {
   font-family: modernNo20;
-  src: url(./fonts/modernNo20.ttf);
+  src: url(./assets/fonts/modernNo20.ttf);
 }
 @font-face {
   font-family: corbel;
-  src: url(./fonts/corbel.ttf);
+  src: url(./assets/fonts/corbel.ttf);
 }
 :root {
   display: inline-block;

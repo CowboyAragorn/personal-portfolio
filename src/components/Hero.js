@@ -16,7 +16,7 @@ const HeroWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.jet};
   background: linear-gradient(
       to right,
-      rgba(255, 0, 0, 0),
+      rgba(0, 0, 0, 0),
       65%,
       rgba(255, 255, 255, 1) 83% 100%
     ),
@@ -82,8 +82,8 @@ const Hero = (props) => {
       <AboutContainer>
         <StyledBoldIntro>HI, I'M JACOB.</StyledBoldIntro>
         <StyledP>
-          I'm an aspiring web developer living in Tampa, Florida. I am
-          experienced in Javascript, React, blah blah blah.
+          I'm an aspiring web developer living in Tampa, Florida. Explore below
+          for more about me and my projects.
         </StyledP>
         <StyledBoldIntro>THANKS FOR VISITING!</StyledBoldIntro>
       </AboutContainer>

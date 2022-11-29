@@ -21,7 +21,9 @@ const theme = {
     header: "modernNo20",
   },
 
-  spacing: {},
+  spacing: {
+    marginLR: "120px",
+  },
 };
 
 export default theme;

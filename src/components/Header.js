@@ -60,6 +60,9 @@ const Header = (props) => {
         <HeaderLink onClick={props.heroClick}>Jacob Potter</HeaderLink>
         <NavList>
           <li>
+            <HeaderLink onClick={props.aboutClick}>About</HeaderLink>
+          </li>
+          <li>
             <HeaderLink onClick={props.projectsClick}>Projects</HeaderLink>
           </li>
           <li>
