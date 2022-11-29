@@ -344,7 +344,7 @@ const Contact = (props) => {
           looking for a job.
         </StyledP>
         <StyledP>
-          If you wish to discuss an opportunity write a message down below or
+          If you wish to discuss an opportunity, write a message down below or
           connect on Linkedin.
         </StyledP>
       </HeaderContainer>

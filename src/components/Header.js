@@ -38,7 +38,19 @@ const HeaderLink = styled.button`
 `;
 const NavList = styled.ul`
   display: flex;
+  align-items: baseline;
   gap: 25px;
+`;
+
+const IconLink = styled.a`
+  color: white;
+  border: none;
+  text-decoration: none;
+  font-size: ${(props) => props.theme.fontSize.headerLink};
+  &:hover {
+    cursor: pointer;
+    background-color: ${(props) => props.theme.colors.ming};
+  }
 `;
 
 const Header = (props) => {
@@ -52,6 +64,15 @@ const Header = (props) => {
           </li>
           <li>
             <HeaderLink onClick={props.contactClick}>Contact</HeaderLink>
+          </li>
+          <li>
+            <IconLink
+              style={{ color: "white", fontSize: "2rem" }}
+              className="devicon-linkedin-plain"
+              href={"https://www.linkedin.com/in/cjacobpotter/"}
+              target="_blank"
+              rel="noreferrer"
+            ></IconLink>
           </li>
         </NavList>
       </LinksContainer>
