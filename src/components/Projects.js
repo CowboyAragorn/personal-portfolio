@@ -112,7 +112,7 @@ const Projects = (props) => {
               <StyledScreenshot
                 src={project.screenshot}
                 alt={project.description}
-                loading="lazy"
+                loading="auto"
               />
               <ProjectText>{project.description}</ProjectText>
               <IconContainer>
