@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.fe17d074.css",
-    "main.js": "/static/js/main.e8c4b925.js",
-    "static/media/greatLookingGuy.jpg": "/static/media/greatLookingGuy.1ef5440e38b5edf92bb7.jpg",
-    "static/media/todoScreenshot.webp": "/static/media/todoScreenshot.284b9da7162d443c7b65.webp",
-    "static/media/storePageScreen.webp": "/static/media/storePageScreen.3d33aa20c2d81e23c7dc.webp",
-    "static/media/bearBackgroundResized.jpg": "/static/media/bearBackgroundResized.73c11a6aeab4eaeff6a5.jpg",
-    "static/media/memoryScreenshot.webp": "/static/media/memoryScreenshot.fa85f18a20e99c74b39e.webp",
-    "static/media/signupScreenshot.webp": "/static/media/signupScreenshot.55208b49b8ffe7c942f3.webp",
-    "static/media/treeBackground.webp": "/static/media/treeBackground.3ae57c7605a117d9d350.webp",
-    "static/media/corbel.ttf": "/static/media/corbel.33f43351e567b0a54e69.ttf",
-    "static/media/cvScreenshot.png": "/static/media/cvScreenshot.4c79fb65966fae79d127.png",
-    "static/media/weatherScreenshot.webp": "/static/media/weatherScreenshot.0b29999a43ffc7822357.webp",
-    "static/media/modernNo20.ttf": "/static/media/modernNo20.1c75344ccc62367136a7.ttf",
-    "static/media/linkedListScreenshot.webp": "/static/media/linkedListScreenshot.5559b5fbf592459d0bcb.webp",
-    "static/media/knightScreenshot.webp": "/static/media/knightScreenshot.80932a1a1f5625a23f01.webp",
-    "static/media/binaryScreenshot.webp": "/static/media/binaryScreenshot.7e7e927316467303a6af.webp",
-    "static/media/github-original.svg": "/static/media/github-original.52cb52a88709904ccbbcbf95693ccdb4.svg",
-    "index.html": "/index.html",
-    "static/media/compassSVG.svg": "/static/media/compassSVG.42fe407ad31b32af0ad9f22516180142.svg",
-    "main.fe17d074.css.map": "/static/css/main.fe17d074.css.map",
-    "main.e8c4b925.js.map": "/static/js/main.e8c4b925.js.map"
+    "main.css": "/personal-portfolio/static/css/main.840e7bdb.css",
+    "main.js": "/personal-portfolio/static/js/main.6a68a239.js",
+    "static/media/greatLookingGuy.jpg": "/personal-portfolio/static/media/greatLookingGuy.1ef5440e38b5edf92bb7.jpg",
+    "static/media/todoScreenshot.webp": "/personal-portfolio/static/media/todoScreenshot.284b9da7162d443c7b65.webp",
+    "static/media/storePageScreen.webp": "/personal-portfolio/static/media/storePageScreen.3d33aa20c2d81e23c7dc.webp",
+    "static/media/bearBackgroundResized.jpg": "/personal-portfolio/static/media/bearBackgroundResized.73c11a6aeab4eaeff6a5.jpg",
+    "static/media/memoryScreenshot.webp": "/personal-portfolio/static/media/memoryScreenshot.fa85f18a20e99c74b39e.webp",
+    "static/media/signupScreenshot.webp": "/personal-portfolio/static/media/signupScreenshot.55208b49b8ffe7c942f3.webp",
+    "static/media/treeBackground.webp": "/personal-portfolio/static/media/treeBackground.3ae57c7605a117d9d350.webp",
+    "static/media/corbel.ttf": "/personal-portfolio/static/media/corbel.33f43351e567b0a54e69.ttf",
+    "static/media/cvScreenshot.png": "/personal-portfolio/static/media/cvScreenshot.4c79fb65966fae79d127.png",
+    "static/media/weatherScreenshot.webp": "/personal-portfolio/static/media/weatherScreenshot.0b29999a43ffc7822357.webp",
+    "static/media/modernNo20.ttf": "/personal-portfolio/static/media/modernNo20.1c75344ccc62367136a7.ttf",
+    "static/media/linkedListScreenshot.webp": "/personal-portfolio/static/media/linkedListScreenshot.5559b5fbf592459d0bcb.webp",
+    "static/media/knightScreenshot.webp": "/personal-portfolio/static/media/knightScreenshot.80932a1a1f5625a23f01.webp",
+    "static/media/binaryScreenshot.webp": "/personal-portfolio/static/media/binaryScreenshot.7e7e927316467303a6af.webp",
+    "static/media/github-original.svg": "/personal-portfolio/static/media/github-original.52cb52a88709904ccbbcbf95693ccdb4.svg",
+    "index.html": "/personal-portfolio/index.html",
+    "static/media/compassSVG.svg": "/personal-portfolio/static/media/compassSVG.42fe407ad31b32af0ad9f22516180142.svg",
+    "main.840e7bdb.css.map": "/personal-portfolio/static/css/main.840e7bdb.css.map",
+    "main.6a68a239.js.map": "/personal-portfolio/static/js/main.6a68a239.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe17d074.css",
-    "static/js/main.e8c4b925.js"
+    "static/css/main.840e7bdb.css",
+    "static/js/main.6a68a239.js"
   ]
 }
