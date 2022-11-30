@@ -28,10 +28,8 @@ const ContactWrapper = styled.footer`
   padding-top: ${(props) => props.theme.size.headerHeight};
   box-shadow: 1px 1vh 8px ${(props) => props.theme.colors.gainsboro} inset;
   @media (max-width: 1000px) {
-    padding-top: none;
     background-image: none;
     align-items: center;
-    height: fill-available;
   }
 `;
 

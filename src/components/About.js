@@ -105,6 +105,7 @@ const PersonalPhoto = styled.img`
   border-radius: 15px;
   @media (max-width: 1000px) {
     align-self: center;
+    max-width: 500px;
   }
 `;
 
