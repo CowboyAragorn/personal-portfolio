@@ -33,7 +33,9 @@ const TotalContainer = styled.div`
   padding-top: 30px;
   padding-bottom: 30px;
   @media (max-width: 1000px) {
+    justify-items: center;
     margin-left: 50px;
+    margin-right: 50px;
   }
 `;
 

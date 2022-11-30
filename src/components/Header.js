@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
   position: -ms-sticky;
   position: sticky;
   top: 0;
-  min-width: 100%;
+  width: 100%;
   background-color: ${(props) => props.theme.colors.jet};
   min-height: ${(props) => props.theme.size.headerHeight};
   z-index: 1;

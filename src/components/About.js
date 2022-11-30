@@ -31,6 +31,8 @@ const HeaderContainer = styled.div`
   margin-bottom: 20px;
   margin-left: 120px;
   @media (max-width: 1000px) {
+    align-items: center;
+    justify-content: center;
     margin-left: 50px;
   }
 `;
@@ -51,6 +53,7 @@ const AboutContainer = styled.div`
   @media (max-width: 1000px) {
     flex-direction: column;
     margin-left: 50px;
+    margin-right: 50px;
   }
 `;
 const AboutTextContainer = styled.div`
@@ -64,6 +67,11 @@ const AboutTextContainer = styled.div`
   min-height: 350px;
   line-height: 1.5;
   letter-spacing: 0.5px;
+  @media (max-width: 1000px) {
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+  }
 `;
 const FollowingP = styled.p``;
 
@@ -95,6 +103,9 @@ const PersonalPhoto = styled.img`
   object-fit: contain;
   align-self: flex-start;
   border-radius: 15px;
+  @media (max-width: 1000px) {
+    align-self: center;
+  }
 `;
 
 const About = (props) => {

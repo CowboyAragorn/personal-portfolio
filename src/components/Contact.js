@@ -28,7 +28,10 @@ const ContactWrapper = styled.footer`
   padding-top: ${(props) => props.theme.size.headerHeight};
   box-shadow: 1px 1vh 8px ${(props) => props.theme.colors.gainsboro} inset;
   @media (max-width: 1000px) {
+    padding-top: none;
+    background-image: none;
     align-items: center;
+    height: fill-available;
   }
 `;
 
@@ -40,10 +43,13 @@ const HeaderContainer = styled.div`
   max-width: 800px;
   gap: 15px;
   //this margin is the same as contact form container margin
-  margin-left: 145px;
+  margin-left: ${(props) => props.theme.spacing.marginLR};
   margin-bottom: 20px;
   @media (max-width: 1000px) {
-    margin-left: 0;
+    max-width: 550px;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 `;
 
@@ -95,8 +101,7 @@ const ContactFormContainer = styled.form`
   padding-right: 0;
   border: none;
   border-radius: 15px;
-  margin-left: 145px;
-
+  margin-left: ${(props) => props.theme.spacing.marginLR};
   ${(props) => {
     if (props.toggle) {
       console.log("I got here");
@@ -108,7 +113,8 @@ const ContactFormContainer = styled.form`
     }
   }}
   @media (max-width: 1000px) {
-    margin-left: 0;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 `;
 const SuccessMessageContainer = styled.div`
@@ -346,7 +352,6 @@ const Contact = (props) => {
       successMessage.current.classList.remove("fade");
     }, 1500);
   };
-
   return (
     <ContactWrapper ref={props.reference}>
       <HeaderContainer>
