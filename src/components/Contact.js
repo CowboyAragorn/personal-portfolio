@@ -364,7 +364,7 @@ const Contact = (props) => {
         <InputFieldContainer>
           {success ? (
             <SuccessMessageContainer ref={successMessage}>
-              <StyledP>Your Message was sent!</StyledP>
+              <StyledP>Your message was sent!</StyledP>
               <StyledCloseButton
                 onClick={handleCloseSuccessPopup}
                 alt="closeSuccessMessage"
