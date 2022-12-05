@@ -25,20 +25,16 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: left;
   justify-content: flex-start;
-  max-width: 800px;
-  gap: 15px;
+  //800px at 16px font
+  max-width: 50rem;
   //this margin is the same as contact form container margin
-  margin-bottom: 20px;
-  margin-left: 120px;
+  margin-bottom: 2rem;
+  margin-left: ${(props) => props.theme.spacing.marginLR};
   @media (max-width: 1000px) {
-    align-items: center;
-    justify-content: center;
-    margin-left: 50px;
   }
 `;
 const SectionHeader = styled.h2`
   font-size: ${(props) => props.theme.fontSize.sectionHeader};
-  margin: 0;
   align-self: left;
   //font-weight: bold;
   color: ${(props) => props.theme.colors.jet};
@@ -48,12 +44,11 @@ const SectionHeader = styled.h2`
 const AboutContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 5rem;
   margin-left: ${(props) => props.theme.spacing.marginLR};
   margin-right: ${(props) => props.theme.spacing.marginLR};
   @media (max-width: 1000px) {
     flex-direction: column;
-    margin-left: 50px;
-    margin-right: 50px;
   }
 `;
 const AboutTextContainer = styled.div`
@@ -63,14 +58,14 @@ const AboutTextContainer = styled.div`
   /* background-color: ${(props) => props.theme.colors.indigoDye}; */
   color: ${(props) => props.theme.colors.jet};
   font-size: ${(props) => props.theme.fontSize.smallText};
-  max-width: 1000px;
+  //62.5 rem 1000px
+  max-width: 62.5rem;
   min-height: 350px;
   line-height: 1.5;
   letter-spacing: 0.5px;
   @media (max-width: 1000px) {
     justify-content: center;
-    align-items: center;
-    margin-left: 50px;
+    margin-left: 0;
   }
 `;
 const FollowingP = styled.p``;
@@ -99,14 +94,10 @@ const IconLabel = styled.p`
   font-size: 1rem;
 `;
 const PersonalPhoto = styled.img`
-  max-width: 600px;
+  max-width: 37.5rem;
   object-fit: contain;
   align-self: flex-start;
   border-radius: 15px;
-  @media (max-width: 1000px) {
-    align-self: center;
-    max-width: 500px;
-  }
 `;
 
 const About = (props) => {

@@ -20,9 +20,9 @@ const theme = {
   font: {
     header: "modernNo20",
   },
-
+  //the equivalent of 120px at 16px font size
   spacing: {
-    marginLR: "120px",
+    marginLR: "7.5rem",
   },
 };
 
