@@ -108,7 +108,10 @@ const Icon = styled.a`
   }
 `;
 //heights are individually set on SVG, different bc I am making the border on compass invisible
-const GithubIcon = styled.img`
+const CompassIcon = styled.img`
+  color: white;
+`;
+const GithubIcon = styled.i`
   color: white;
   text-decoration: none;
   font-size: 5.5rem;
@@ -140,7 +143,7 @@ const Projects = (props) => {
                 </Icon>
 
                 <Icon href={project.liveURL} target="_blank" rel="noreferrer">
-                  <GithubIcon src={compassSVG}></GithubIcon>
+                  <CompassIcon src={compassSVG}></CompassIcon>
                 </Icon>
                 <ProjectText>View Code</ProjectText>
                 <ProjectText>Live Page</ProjectText>

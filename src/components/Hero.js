@@ -8,7 +8,7 @@ const HeroWrapper = styled.div`
   justify-content: center;
   align-items: flex-end;
   min-width: 100%;
-  gap: 25px;
+  gap: 1.5rem;
   //padding-right: 100px;
   //min-height is set at 102 for the blur box-shadow effect,
   //the bottom border blurs into the projects page, removing the harsh edge
@@ -25,6 +25,21 @@ const HeroWrapper = styled.div`
   background-position: top;
   background-repeat: no-repeat;
   box-shadow: -3px -1vh 8px ${(props) => props.theme.colors.gainsboro} inset;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.35),
+        65%,
+        rgba(255, 255, 255, 1) 83% 100%
+      ),
+      url(${bearBackground});
+    background-size: 100% 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
 `;
 
 const NameContainer = styled.div`

@@ -41,6 +41,9 @@ const NavList = styled.ul`
   display: flex;
   align-items: baseline;
   gap: 1rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    gap: 0.5rem;
+  }
 `;
 
 const IconLink = styled.a`

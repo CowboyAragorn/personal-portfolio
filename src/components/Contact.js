@@ -47,7 +47,7 @@ const HeaderContainer = styled.div`
     margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    max-width: 35rem;
+    max-width: 30rem;
     margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;
@@ -96,6 +96,7 @@ const ContactFormContainer = styled.form`
     margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    max-width: 30rem;
     margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;

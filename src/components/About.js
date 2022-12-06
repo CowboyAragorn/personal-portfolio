@@ -61,7 +61,7 @@ const AboutContainer = styled.div`
     flex-direction: column;
     //making page tighter for mobile
     margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
-    margin-right: ${(props) => props.theme.spacing.marginMobileLeft};
+    margin-right: 0;
     justify-content: center;
   }
 `;
@@ -80,8 +80,8 @@ const AboutTextContainer = styled.div`
   letter-spacing: 0.5px;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     //min-width: 32.5rem;
-    min-width: 25rem;
-    max-width: 32.5rem;
+    min-width: 23rem;
+    max-width: 33rem;
   }
 `;
 const FollowingP = styled.p``;
@@ -121,7 +121,8 @@ const PersonalPhoto = styled.img`
     align-self: center;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    max-width: 32.5rem;
+    max-width: 30rem;
+    align-self: flex-start;
   }
 `;
 
