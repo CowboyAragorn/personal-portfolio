@@ -18,6 +18,8 @@ const SectionHeader = styled.h2`
   grid-column: 1/-1;
   font-family: ${(props) => props.theme.font.header};
   font-weight: normal;
+  align-self: end;
+  margin-top: 1rem;
 `;
 
 const TotalContainer = styled.div`
@@ -31,7 +33,6 @@ const TotalContainer = styled.div`
   margin-right: ${(props) => props.theme.spacing.marginLR};
   //justify-items: center;
   gap: 2rem;
-  padding-top: 30px;
   padding-bottom: 30px;
   /* @media (max-width: 1000px) {
     justify-items: center;

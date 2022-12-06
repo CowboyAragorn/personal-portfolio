@@ -29,7 +29,6 @@ const ContactWrapper = styled.footer`
   box-shadow: 1px 1vh 8px ${(props) => props.theme.colors.gainsboro} inset;
   @media (max-width: 1000px) {
     background-image: none;
-    align-items: center;
   }
 `;
 
@@ -38,17 +37,14 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  max-width: 800px;
+  max-width: 50rem;
   gap: 15px;
   //this margin is the same as contact form container margin
   margin-left: ${(props) => props.theme.spacing.marginLR};
-  margin-bottom: 20px;
-  @media (max-width: 1000px) {
+  margin-bottom: 1rem;
+  /* @media (max-width: 1000px) {
     max-width: 550px;
-    align-items: center;
-    margin-left: 50px;
-    margin-right: 50px;
-  }
+  }  */
 `;
 
 const SectionHeader = styled.h2`
@@ -89,7 +85,7 @@ const ContactFormContainer = styled.form`
   flex-wrap: wrap;
   flex-direction: column;
   border: 1pt solid black;
-  max-width: 800px;
+  max-width: fit-content;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -111,18 +107,17 @@ const ContactFormContainer = styled.form`
     }
   }}
   @media (max-width: 1000px) {
-    margin-left: 50px;
-    margin-right: 50px;
+    align-items: flex-start;
   }
 `;
 const SuccessMessageContainer = styled.div`
   display: flex;
   background-color: ${(props) => props.theme.colors.white};
   color: ${(props) => props.theme.colors.ming};
-  padding: 15px;
+  padding: 1rem;
   justify-content: space-between;
   align-items: center;
-  min-width: 300px;
+  min-width: 19rem;
   border-radius: 15px;
   box-sizing: border-box;
   border: 1pt solid ${(props) => props.theme.colors.ming};
@@ -183,14 +178,14 @@ const InputError = styled.p`
 `;
 const StyledInput = styled.input`
   box-sizing: border-box;
-  min-width: 500px;
+  min-width: 31rem;
   font-size: ${(props) => props.theme.fontSize.smallText};
   background-color: ${(props) => props.theme.colors.white};
   color: ${(props) => props.theme.colors.jet};
   border: none;
   border-bottom: 1pt solid white;
-  padding: 15px;
-  padding-left: 10px;
+  padding: 1rem;
+  padding-left: 0.5rem;
   border-radius: 15px;
   &::placeholder {
     color: ${(props) => props.theme.colors.jet};
@@ -204,10 +199,10 @@ const StyledInput = styled.input`
 
 const StyledTextArea = styled.textarea`
   box-sizing: border-box;
-  min-height: 170px;
-  min-width: 500px;
+  min-height: 10rem;
+  min-width: 31rem;
   font-size: ${(props) => props.theme.fontSize.smallText};
-  padding: 10px;
+  padding: 1rem;
   background-color: ${(props) => props.theme.colors.white};
   border: none;
   border: 1pt solid white;
@@ -226,14 +221,15 @@ const StyledTextArea = styled.textarea`
 
 //TODO: make checkoutBtn an importable styled component for contact, payment container, and shop
 const SubmitFormBtn = styled.button`
-  padding: 14px;
+  padding: 1rem 3rem 1rem 3rem;
   font-size: ${(props) => props.theme.fontSize.smallText};
   border-radius: 5px;
   border: none;
   font-weight: bold;
   text-decoration: none;
-  width: 25%;
+  //width: 25%;
   transition: transform 1s;
+  align-self: center;
   &:hover {
     cursor: pointer;
     transform: scale(1.1);

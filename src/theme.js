@@ -14,7 +14,8 @@ const theme = {
     headerLink: "2rem",
   },
   size: {
-    headerHeight: "7vh",
+    //former 7vh
+    headerHeight: "5rem",
     sectionHeight: "100vh",
   },
   font: {
