@@ -26,6 +26,11 @@ const theme = {
   spacing: {
     marginLR: "7.5rem",
     marginMobileLeft: "3rem",
+    marginTabletLeft: "4rem",
+  },
+  breakpoints: {
+    mobile: "450px",
+    tablet: "1100px",
   },
 };
 

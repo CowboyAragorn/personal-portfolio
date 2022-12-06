@@ -40,7 +40,7 @@ const HeaderLink = styled.button`
 const NavList = styled.ul`
   display: flex;
   align-items: baseline;
-  gap: 1.5rem;
+  gap: 1rem;
 `;
 
 const IconLink = styled.a`

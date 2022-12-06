@@ -20,7 +20,11 @@ const SectionHeader = styled.h2`
   font-weight: normal;
   align-self: end;
   margin-top: 1rem;
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    justify-self: left;
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     justify-self: left;
     margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
   }
@@ -37,7 +41,12 @@ const TotalContainer = styled.div`
   margin-right: ${(props) => props.theme.spacing.marginLR};
   //justify-items: center;
   gap: 2rem;
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    //justify-items: center;
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+    margin-right: 0;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     //justify-items: center;
     margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
     margin-right: 0;
@@ -92,6 +101,7 @@ const Icon = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   transition: all 0.4s ease-in-out;
   &:hover {
     transform: scale(1.1);
@@ -100,6 +110,8 @@ const Icon = styled.a`
 //heights are individually set on SVG, different bc I am making the border on compass invisible
 const GithubIcon = styled.img`
   color: white;
+  text-decoration: none;
+  font-size: 5.5rem;
 `;
 
 const Projects = (props) => {
@@ -124,7 +136,7 @@ const Projects = (props) => {
               <ProjectText>{project.description}</ProjectText>
               <IconContainer>
                 <Icon href={project.github} target="_blank" rel="noreferrer">
-                  <GithubIcon src={githubSVG}></GithubIcon>
+                  <GithubIcon className="devicon-github-original"></GithubIcon>
                 </Icon>
 
                 <Icon href={project.liveURL} target="_blank" rel="noreferrer">

@@ -27,7 +27,7 @@ const ContactWrapper = styled.footer`
   text-align: left;
   padding-top: ${(props) => props.theme.size.headerHeight};
   box-shadow: 1px 1vh 8px ${(props) => props.theme.colors.gainsboro} inset;
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     background-image: none;
   }
 `;
@@ -43,12 +43,14 @@ const HeaderContainer = styled.div`
   //this margin is the same as contact form container margin
   margin-left: ${(props) => props.theme.spacing.marginLR};
   margin-bottom: 1rem;
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     max-width: 35rem;
     margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;
-
 const SectionHeader = styled.h2`
   font-size: ${(props) => props.theme.fontSize.sectionHeader};
   margin: 0;
@@ -62,24 +64,6 @@ const StyledP = styled.p`
   text-align: center;
   font-size: ${(props) => props.theme.fontSize.smallText};
   text-align: left;
-`;
-
-const shake = keyframes`
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
 `;
 
 const ContactFormContainer = styled.form`
@@ -108,8 +92,10 @@ const ContactFormContainer = styled.form`
       `;
     }
   }}
-  @media (max-width: 1000px) {
-    align-items: center;
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;
@@ -129,7 +115,6 @@ const SuccessMessageContainer = styled.div`
     transform: scale(0);
   }
 `;
-
 const StyledCloseButton = styled.button`
   background-color: ${(props) => props.theme.colors.white};
   font-weight: bold;
@@ -239,6 +224,24 @@ const SubmitFormBtn = styled.button`
   }
   &:focus {
     transform: scale(1.1);
+  }
+`;
+
+const shake = keyframes`
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 `;
 //don't want to make this an actual form that submits because

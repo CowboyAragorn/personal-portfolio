@@ -31,7 +31,10 @@ const HeaderContainer = styled.div`
   margin-top: 2rem;
   margin-bottom: 2rem;
   margin-left: ${(props) => props.theme.spacing.marginLR};
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;
@@ -49,11 +52,17 @@ const AboutContainer = styled.div`
   gap: 5rem;
   margin-left: ${(props) => props.theme.spacing.marginLR};
   margin-right: ${(props) => props.theme.spacing.marginLR};
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    flex-direction: column;
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+    margin-right: ${(props) => props.theme.spacing.marginMobileLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     flex-direction: column;
     //making page tighter for mobile
     margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
     margin-right: ${(props) => props.theme.spacing.marginMobileLeft};
+    justify-content: center;
   }
 `;
 const AboutTextContainer = styled.div`
@@ -69,7 +78,7 @@ const AboutTextContainer = styled.div`
   min-height: 22rem;
   line-height: 1.5;
   letter-spacing: 0.5px;
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     //min-width: 32.5rem;
     min-width: 25rem;
     max-width: 32.5rem;
@@ -82,8 +91,11 @@ const TechIconsContainer = styled.div`
   grid-template-columns: repeat(6, 1fr);
   justify-items: center;
   max-width: 31rem;
-  margin-top: 20px;
-  gap: 15px;
+  margin-top: 1.5rem;
+  gap: 1rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    align-self: center;
+  }
 `;
 
 const IconFlexContainer = styled.div`
@@ -105,7 +117,10 @@ const PersonalPhoto = styled.img`
   object-fit: contain;
   align-self: flex-start;
   border-radius: 15px;
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    align-self: center;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     max-width: 32.5rem;
   }
 `;

@@ -34,7 +34,10 @@ const NameContainer = styled.div`
   align-items: flex-end;
   justify-content: right;
   margin-right: 6rem;
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    margin-right: ${(props) => props.theme.spacing.marginMobileLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     margin-right: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;
@@ -51,7 +54,10 @@ const AboutContainer = styled.div`
   //TODO: make shadow more opaque
   box-shadow: 10px 5px 2px ${(props) => props.theme.colors.ming};
   margin-right: 6rem;
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    margin-right: ${(props) => props.theme.spacing.marginMobileLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     margin-right: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;
