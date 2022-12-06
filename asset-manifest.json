@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b7454786.css",
-    "main.js": "/static/js/main.bdce028f.js",
+    "main.css": "/static/css/main.4c83d68e.css",
+    "main.js": "/static/js/main.6ca7ce56.js",
     "static/media/greatLookingGuy.jpg": "/static/media/greatLookingGuy.1ef5440e38b5edf92bb7.jpg",
     "static/media/todoScreenshot.webp": "/static/media/todoScreenshot.284b9da7162d443c7b65.webp",
     "static/media/storePageScreen.webp": "/static/media/storePageScreen.3d33aa20c2d81e23c7dc.webp",
@@ -19,11 +19,11 @@
     "static/media/github-original.svg": "/static/media/github-original.f8089eefde55941ffba7c1a505a2f189.svg",
     "index.html": "/index.html",
     "static/media/compassSVG.svg": "/static/media/compassSVG.06e6aaf97a928320a8d0e221b6bd383a.svg",
-    "main.b7454786.css.map": "/static/css/main.b7454786.css.map",
-    "main.bdce028f.js.map": "/static/js/main.bdce028f.js.map"
+    "main.4c83d68e.css.map": "/static/css/main.4c83d68e.css.map",
+    "main.6ca7ce56.js.map": "/static/js/main.6ca7ce56.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7454786.css",
-    "static/js/main.bdce028f.js"
+    "static/css/main.4c83d68e.css",
+    "static/js/main.6ca7ce56.js"
   ]
 }
