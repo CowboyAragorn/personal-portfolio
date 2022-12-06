@@ -58,7 +58,8 @@ const projects = [
   {
     name: "Sign Up Form",
     screenshot: require("./assets/images/signupScreenshot.webp"),
-    description: "Mock sign up form utilizing front-end form validation.",
+    description:
+      "Mock sign up form utilizing front-end Javascript form validation with a focus on accessibility.",
     github: "https://github.com/CowboyAragorn/Sign-up-Form",
     liveURL: "https://cowboyaragorn.github.io/Sign-up-Form/",
   },

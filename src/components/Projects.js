@@ -23,20 +23,21 @@ const SectionHeader = styled.h2`
 const TotalContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  //equivalent to 520px at 1920 resolution
+  grid-template-columns: repeat(auto-fit, minmax(32.5rem, 1fr));
   grid-template-rows: auto;
   justify-items: left;
   margin-left: ${(props) => props.theme.spacing.marginLR};
   margin-right: ${(props) => props.theme.spacing.marginLR};
   //justify-items: center;
-  gap: 30px;
+  gap: 2rem;
   padding-top: 30px;
   padding-bottom: 30px;
-  @media (max-width: 1000px) {
+  /* @media (max-width: 1000px) {
     justify-items: center;
     margin-left: 50px;
     margin-right: 50px;
-  }
+  } */
 `;
 
 const ProjectContainer = styled.a`
@@ -49,8 +50,8 @@ const ProjectContainer = styled.a`
   max-width: 520px;
   min-height: 400px;
   text-decoration: none;
-  gap: 15px;
-  padding: 25px 35px 25px 35px;
+  gap: 1rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
   background-color: ${(props) => props.theme.colors.indigoDye};
   color: ${(props) => props.theme.colors.white};
   transition: all 0.4s ease-in-out;
@@ -67,10 +68,11 @@ const ProjectHeader = styled.h3`
 `;
 const ProjectText = styled.p`
   font-size: ${(props) => props.theme.fontSize.text};
+  min-width: 100%;
 `;
 const StyledScreenshot = styled.img`
-  max-width: 450px;
-  max-height: 400px;
+  max-width: 28rem;
+  max-height: 25rem;
   border-radius: 15px;
 `;
 const IconContainer = styled.div`
