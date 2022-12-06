@@ -20,6 +20,10 @@ const SectionHeader = styled.h2`
   font-weight: normal;
   align-self: end;
   margin-top: 1rem;
+  @media (max-width: 1000px) {
+    justify-self: left;
+    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+  }
 `;
 
 const TotalContainer = styled.div`
@@ -33,12 +37,11 @@ const TotalContainer = styled.div`
   margin-right: ${(props) => props.theme.spacing.marginLR};
   //justify-items: center;
   gap: 2rem;
-  padding-bottom: 30px;
-  /* @media (max-width: 1000px) {
-    justify-items: center;
-    margin-left: 50px;
-    margin-right: 50px;
-  } */
+  @media (max-width: 1000px) {
+    //justify-items: center;
+    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    margin-right: 0;
+  }
 `;
 
 const ProjectContainer = styled.a`
@@ -48,8 +51,9 @@ const ProjectContainer = styled.a`
   //this ensures buttons on bottom and title are lined up, may have to limit sentence length to fix for real
   justify-content: space-between;
   box-sizing: border-box;
-  max-width: 520px;
-  min-height: 400px;
+  //can visually see the boxes resizing on zoom with this in rem
+  max-width: 32.5rem;
+  min-height: 25rem;
   text-decoration: none;
   gap: 1rem;
   padding: 1.5rem 2rem 1.5rem 2rem;

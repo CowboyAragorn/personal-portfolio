@@ -15,11 +15,11 @@ const ContactWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  min-height: 90vh;
+  min-height: ${(props) => props.theme.size.sectionHeight};
   background-color: ${(props) => props.theme.colors.gainsboro};
   color: ${(props) => props.theme.colors.jet};
   text-align: left;
-  padding-top: 10vh;
+  padding-top: ${(props) => props.theme.size.headerHeight};
 `;
 const HeaderContainer = styled.div`
   display: flex;
@@ -28,9 +28,11 @@ const HeaderContainer = styled.div`
   //800px at 16px font
   max-width: 50rem;
   //this margin is the same as contact form container margin
+  margin-top: 2rem;
   margin-bottom: 2rem;
   margin-left: ${(props) => props.theme.spacing.marginLR};
   @media (max-width: 1000px) {
+    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;
 const SectionHeader = styled.h2`
@@ -49,23 +51,28 @@ const AboutContainer = styled.div`
   margin-right: ${(props) => props.theme.spacing.marginLR};
   @media (max-width: 1000px) {
     flex-direction: column;
+    //making page tighter for mobile
+    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    margin-right: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;
 const AboutTextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.5rem;
   /* background-color: ${(props) => props.theme.colors.indigoDye}; */
   color: ${(props) => props.theme.colors.jet};
   font-size: ${(props) => props.theme.fontSize.smallText};
   //62.5 rem 1000px
   max-width: 62.5rem;
-  min-height: 350px;
+  min-width: 37.5rem;
+  min-height: 22rem;
   line-height: 1.5;
   letter-spacing: 0.5px;
   @media (max-width: 1000px) {
-    justify-content: center;
-    margin-left: 0;
+    //min-width: 32.5rem;
+    min-width: 25rem;
+    max-width: 32.5rem;
   }
 `;
 const FollowingP = styled.p``;
@@ -74,7 +81,7 @@ const TechIconsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   justify-items: center;
-  max-width: 500px;
+  max-width: 31rem;
   margin-top: 20px;
   gap: 15px;
 `;
@@ -98,6 +105,9 @@ const PersonalPhoto = styled.img`
   object-fit: contain;
   align-self: flex-start;
   border-radius: 15px;
+  @media (max-width: 1000px) {
+    max-width: 32.5rem;
+  }
 `;
 
 const About = (props) => {

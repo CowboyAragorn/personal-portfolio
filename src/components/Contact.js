@@ -11,7 +11,7 @@ const ContactWrapper = styled.footer`
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  min-height: 90vh;
+  min-height: ${(props) => props.theme.size.sectionHeight};
   background-image: linear-gradient(
       to left,
       rgba(217, 217, 217, 0),
@@ -37,14 +37,16 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  max-width: 50rem;
-  gap: 15px;
+  min-width: 35rem;
+  max-width: 62.5rem;
+  gap: 1rem;
   //this margin is the same as contact form container margin
   margin-left: ${(props) => props.theme.spacing.marginLR};
   margin-bottom: 1rem;
-  /* @media (max-width: 1000px) {
-    max-width: 550px;
-  }  */
+  @media (max-width: 1000px) {
+    max-width: 35rem;
+    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+  }
 `;
 
 const SectionHeader = styled.h2`
@@ -88,9 +90,9 @@ const ContactFormContainer = styled.form`
   max-width: fit-content;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 1.3rem;
   //background-color: ${(props) => props.theme.colors.ming};
-  padding: 35px;
+  padding: 2rem;
   padding-left: 0;
   padding-right: 0;
   border: none;
@@ -107,7 +109,8 @@ const ContactFormContainer = styled.form`
     }
   }}
   @media (max-width: 1000px) {
-    align-items: flex-start;
+    align-items: center;
+    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
   }
 `;
 const SuccessMessageContainer = styled.div`
