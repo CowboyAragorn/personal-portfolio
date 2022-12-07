@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import projects from "../projectsObj";
-import githubSVG from "../assets/github-original.svg";
-import compassSVG from "../assets/compassSVG.svg";
 
 const ProjectsWrapper = styled.main`
   display: flex;
@@ -108,13 +106,11 @@ const Icon = styled.a`
   }
 `;
 //heights are individually set on SVG, different bc I am making the border on compass invisible
-const CompassIcon = styled.img`
-  color: white;
-`;
+
 const GithubIcon = styled.i`
   color: white;
   text-decoration: none;
-  font-size: 5.5rem;
+  font-size: 3.5rem;
 `;
 
 const Projects = (props) => {
@@ -143,7 +139,9 @@ const Projects = (props) => {
                 </Icon>
 
                 <Icon href={project.liveURL} target="_blank" rel="noreferrer">
-                  <CompassIcon src={compassSVG}></CompassIcon>
+                  <GithubIcon className="material-symbols-outlined">
+                    output
+                  </GithubIcon>
                 </Icon>
                 <ProjectText>View Code</ProjectText>
                 <ProjectText>Live Page</ProjectText>

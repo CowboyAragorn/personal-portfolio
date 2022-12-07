@@ -39,6 +39,9 @@ const HeroWrapper = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0;
+    //background-image: none;
+    background-color: ${(props) => props.theme.colors.gainsboro};
+    min-height: 250px;
   }
 `;
 
