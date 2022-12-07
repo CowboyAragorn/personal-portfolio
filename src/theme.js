@@ -18,6 +18,7 @@ const theme = {
     headerHeight: "5rem",
     //equal to 100vh
     sectionHeight: "59rem",
+    heroHeight: "65rem",
   },
   font: {
     header: "modernNo20",

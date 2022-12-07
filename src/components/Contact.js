@@ -10,7 +10,7 @@ const ContactWrapper = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: center;
+  //justify-content: center;
   min-height: ${(props) => props.theme.size.sectionHeight};
   background-image: linear-gradient(
       to left,
@@ -39,10 +39,10 @@ const HeaderContainer = styled.div`
   justify-content: center;
   /* min-width: 35rem;
   max-width: 62.5rem; */
-  width: 100%;
   gap: 1rem;
   //this margin is the same as contact form container margin
   margin-left: ${(props) => props.theme.spacing.marginLR};
+  margin-top: 2rem;
   margin-bottom: 1rem;
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
@@ -85,9 +85,9 @@ const ContactFormContainer = styled.form`
   flex-wrap: wrap;
   flex-direction: column;
   border: 1pt solid black;
-  max-width: 100%;
-  align-items: center;
+  align-items: left;
   justify-content: center;
+  max-width: fit-content;
   gap: 1.3rem;
   //background-color: ${(props) => props.theme.colors.ming};
   padding: 2rem;
@@ -110,8 +110,8 @@ const ContactFormContainer = styled.form`
     margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    /* max-width: 30rem; */
-    /* margin-left: ${(props) => props.theme.spacing.marginMobileLeft}; */
+    max-width: 100%;
+    align-items: center;
     margin-left: 0;
   }
 `;
@@ -229,6 +229,7 @@ const SubmitFormBtn = styled.button`
   font-size: ${(props) => props.theme.fontSize.smallText};
   border-radius: 5px;
   border: none;
+  margin-top: 1rem;
   font-weight: bold;
   text-decoration: none;
   //width: 25%;

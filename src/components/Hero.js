@@ -12,7 +12,7 @@ const HeroWrapper = styled.div`
   //padding-right: 100px;
   //min-height is set at 102 for the blur box-shadow effect,
   //the bottom border blurs into the projects page, removing the harsh edge
-  min-height: ${(props) => props.theme.size.sectionHeight};
+  min-height: ${(props) => props.theme.size.heroHeight};
   background-color: ${(props) => props.theme.colors.jet};
   background: linear-gradient(
       to right,
@@ -85,6 +85,7 @@ const StyledName = styled.h2`
   color: ${(props) => props.theme.colors.jet};
   font-family: ${(props) => props.theme.font.header};
   font-weight: normal;
+  /* padding-top: ${(props) => props.theme.size.headerHeight}; */
 `;
 
 const StyledTitle = styled.p`

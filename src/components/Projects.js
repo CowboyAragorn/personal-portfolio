@@ -17,7 +17,7 @@ const SectionHeader = styled.h2`
   font-family: ${(props) => props.theme.font.header};
   font-weight: normal;
   align-self: end;
-  margin-top: 1rem;
+  margin-top: 2rem;
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     justify-self: left;
     margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
