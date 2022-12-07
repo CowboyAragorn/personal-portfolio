@@ -74,7 +74,7 @@ const AboutTextContainer = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   color: ${(props) => props.theme.colors.jet};
-  font-size: ${(props) => props.theme.fontSize.smallText};
+  font-size: ${(props) => props.theme.fontSize.text};
   //62.5 rem 1000px
   max-width: 62.5rem;
   min-width: 37.5rem;
@@ -89,6 +89,9 @@ const AboutTextContainer = styled.div`
   }
 `;
 const FollowingP = styled.p``;
+const StyledSpan = styled.span`
+  color: ${(props) => props.theme.colors.ming};
+`;
 
 const TechIconsContainer = styled.div`
   display: grid;
@@ -97,7 +100,7 @@ const TechIconsContainer = styled.div`
   max-width: 31rem;
   margin-top: 1.5rem;
   gap: 1rem;
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     align-self: center;
   }
 `;
@@ -122,7 +125,7 @@ const PersonalPhoto = styled.img`
   align-self: flex-start;
   border-radius: 15px;
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    align-self: center;
+    //align-self: center;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     max-width: 30rem;
@@ -140,34 +143,30 @@ const About = (props) => {
         <AboutTextContainer>
           <p>
             My name is Jacob, and I create web applications. I have been
-            learning and creating projects since the fall 2021. At the time, I
-            was a public school teacher in my third year of teaching the same
-            material. I was hankering for a new challenge, and web development
-            was a natural fit.
+            learning and creating projects since Fall 2021.
           </p>
           <FollowingP>
-            I say a new challenge, but my first programming project was not made
-            in the fall of 2021. For that you would have to go back to the 8th
-            grade, when I was modding Medieval II: Total War in Notepad++ to
-            make larger farms lower revolt risk. I thought it was more
-            historically accurate. My projects today tend to be a little more
-            complex and try to solve (arguably) larger problems.
+            I am a volunteer developer with the Gainesville, FL brigade of{" "}
+            <StyledSpan>Code for America </StyledSpan> and have been since July
+            2022. We are currently working on several projects with community
+            organizations, local schools, and the city government. One such
+            project is our{" "}
+            <StyledSpan>"resource finder" application</StyledSpan> with the city
+            government, which seeks to help under-served citizens easily find
+            city resources.
           </FollowingP>
           <FollowingP>
-            I graduated from the University in Florida in 2019 with a bachelor's
-            degree in history and minor in English. I am specifically interested
-            in the 18th and 19th century, and more recently have been on a
-            French Revolution kick. In my free time I enjoy reading,
-            weightlifting, spending time with family, and camping.
+            I graduated from the <StyledSpan>University of Florida</StyledSpan>{" "}
+            in 2019 with a bachelor's degree in history and minor in English. I
+            am specifically interested in the 18th and 19th century, and more
+            recently have been on a French Revolution/Napoleon kick. In my free
+            time I enjoy reading, weightlifting, spending time with family, and
+            camping.
           </FollowingP>
-          <FollowingP>
-            Professionally, I have been volunteering as a developer with the
-            Gainesville, FL brigade of Code for America since July 2022. We are
-            working directly with the city government and are in the final
-            stages of developing a "resource finder" application to help
-            under-served citizens easily find city resources.
-          </FollowingP>
-          <p>Here are a few of the technologies I have been using recently:</p>
+          <p>
+            Here are a few of the <StyledSpan>technologies</StyledSpan> I have
+            been using recently:
+          </p>
           <TechIconsContainer>
             {Icons.map((icon) => {
               return (
