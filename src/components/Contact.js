@@ -37,8 +37,9 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  min-width: 35rem;
-  max-width: 62.5rem;
+  /* min-width: 35rem;
+  max-width: 62.5rem; */
+  width: 100%;
   gap: 1rem;
   //this margin is the same as contact form container margin
   margin-left: ${(props) => props.theme.spacing.marginLR};
@@ -47,23 +48,36 @@ const HeaderContainer = styled.div`
     margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    max-width: 30rem;
-    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    //max-width: 30rem;
+    //margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    margin-left: 0;
+    align-items: center;
+    justify-content: center;
   }
 `;
 const SectionHeader = styled.h2`
   font-size: ${(props) => props.theme.fontSize.sectionHeader};
+  max-width: 62.5rem;
   margin: 0;
   align-self: left;
   //font-weight: bold;
   color: ${(props) => props.theme.colors.jet};
   font-family: ${(props) => props.theme.font.header};
   font-weight: normal;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    max-width: 35rem;
+    align-self: center;
+  }
 `;
 const StyledP = styled.p`
   text-align: center;
   font-size: ${(props) => props.theme.fontSize.smallText};
   text-align: left;
+  max-width: 62.5rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    max-width: 35rem;
+    font-size: ${(props) => props.theme.fontSize.text};
+  }
 `;
 
 const ContactFormContainer = styled.form`
@@ -71,7 +85,7 @@ const ContactFormContainer = styled.form`
   flex-wrap: wrap;
   flex-direction: column;
   border: 1pt solid black;
-  max-width: fit-content;
+  max-width: 100%;
   align-items: center;
   justify-content: center;
   gap: 1.3rem;
@@ -96,8 +110,9 @@ const ContactFormContainer = styled.form`
     margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    max-width: 30rem;
-    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    /* max-width: 30rem; */
+    /* margin-left: ${(props) => props.theme.spacing.marginMobileLeft}; */
+    margin-left: 0;
   }
 `;
 const SuccessMessageContainer = styled.div`

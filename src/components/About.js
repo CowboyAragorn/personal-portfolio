@@ -35,7 +35,10 @@ const HeaderContainer = styled.div`
     margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    //margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
   }
 `;
 const SectionHeader = styled.h2`
@@ -59,9 +62,10 @@ const AboutContainer = styled.div`
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     flex-direction: column;
-    //making page tighter for mobile
-    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    //margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    margin-left: 0;
     margin-right: 0;
+    align-items: center;
     justify-content: center;
   }
 `;
@@ -69,7 +73,6 @@ const AboutTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  /* background-color: ${(props) => props.theme.colors.indigoDye}; */
   color: ${(props) => props.theme.colors.jet};
   font-size: ${(props) => props.theme.fontSize.smallText};
   //62.5 rem 1000px
@@ -82,6 +85,7 @@ const AboutTextContainer = styled.div`
     //min-width: 32.5rem;
     min-width: 23rem;
     max-width: 33rem;
+    font-size: ${(props) => props.theme.fontSize.text};
   }
 `;
 const FollowingP = styled.p``;
@@ -122,7 +126,7 @@ const PersonalPhoto = styled.img`
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     max-width: 30rem;
-    align-self: flex-start;
+    align-self: center;
   }
 `;
 

@@ -23,8 +23,9 @@ const SectionHeader = styled.h2`
     margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    justify-self: left;
-    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    justify-self: center;
+    //margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    margin-left: 0;
   }
 `;
 
@@ -45,9 +46,10 @@ const TotalContainer = styled.div`
     margin-right: 0;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    //justify-items: center;
-    margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    justify-items: center;
+    //margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
     margin-right: 0;
+    margin-left: 0;
   }
 `;
 
