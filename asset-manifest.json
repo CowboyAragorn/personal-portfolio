@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.833a1ba0.css",
-    "main.js": "/static/js/main.e42ccede.js",
+    "main.css": "/static/css/main.9b489acf.css",
+    "main.js": "/static/js/main.3e4bd579.js",
     "static/media/greatLookingGuy.jpg": "/static/media/greatLookingGuy.1ef5440e38b5edf92bb7.jpg",
     "static/media/todoScreenshot.webp": "/static/media/todoScreenshot.284b9da7162d443c7b65.webp",
     "static/media/storePageScreen.webp": "/static/media/storePageScreen.3d33aa20c2d81e23c7dc.webp",
@@ -16,14 +16,12 @@
     "static/media/linkedListScreenshot.webp": "/static/media/linkedListScreenshot.5559b5fbf592459d0bcb.webp",
     "static/media/knightScreenshot.webp": "/static/media/knightScreenshot.80932a1a1f5625a23f01.webp",
     "static/media/binaryScreenshot.webp": "/static/media/binaryScreenshot.7e7e927316467303a6af.webp",
-    "static/media/github-original.svg": "/static/media/github-original.f8089eefde55941ffba7c1a505a2f189.svg",
     "index.html": "/index.html",
-    "static/media/compassSVG.svg": "/static/media/compassSVG.06e6aaf97a928320a8d0e221b6bd383a.svg",
-    "main.833a1ba0.css.map": "/static/css/main.833a1ba0.css.map",
-    "main.e42ccede.js.map": "/static/js/main.e42ccede.js.map"
+    "main.9b489acf.css.map": "/static/css/main.9b489acf.css.map",
+    "main.3e4bd579.js.map": "/static/js/main.3e4bd579.js.map"
   },
   "entrypoints": [
-    "static/css/main.833a1ba0.css",
-    "static/js/main.e42ccede.js"
+    "static/css/main.9b489acf.css",
+    "static/js/main.3e4bd579.js"
   ]
 }
