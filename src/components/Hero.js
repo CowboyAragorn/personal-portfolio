@@ -25,6 +25,18 @@ const HeroWrapper = styled.div`
   background-position: top;
   background-repeat: no-repeat;
   box-shadow: -3px -1vh 8px ${(props) => props.theme.colors.gainsboro} inset;
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.3),
+        99.9%,
+        rgba(255, 255, 255, 1) 100%
+      ),
+      url(${bearBackground});
+    background-size: 100% 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    min-height: 700px;
+  }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     //want the background to have an opaque gradient on it, but not show the white transition on mobile
     background: linear-gradient(
@@ -92,7 +104,7 @@ const StyledTitle = styled.p`
   font-size: ${(props) => props.theme.fontSize.subHeader};
   //transparent Ming
   color: rgb(60, 110, 113, 0.6);
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     color: ${(props) => props.theme.colors.jet};
   }
 `;
