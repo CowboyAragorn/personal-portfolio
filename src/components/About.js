@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import greatLookingGuy from "../assets/images/greatLookingGuy.jpg";
+import greatLookingGuy from "../assets/images/Handsome Man (ME).jpg";
+//import greatLookingGuy from "../assets/images/greatLookingGuy.jpg";
 
 const Icons = [
   { className: "devicon-javascript-plain", name: "Javascript" },
   { className: "devicon-react-original", name: "React" },
-  { className: "devicon-css3-plain", name: "CSS" },
+  { className: "devicon-python-plain", name: "Python" },
+  { className: "devicon-selenium-original", name: "Selenium" },
   { className: "devicon-redux-original", name: "Redux" },
-  { className: "devicon-firebase-plain", name: "Firebase" },
   { className: "devicon-typescript-plain", name: "Typescript" },
 ];
 const ContactWrapper = styled.div`
@@ -141,32 +142,31 @@ const About = (props) => {
       </HeaderContainer>
       <AboutContainer>
         <AboutTextContainer>
-          <p>
-            My name is Jacob, and I create web applications. I have been
-            learning and creating projects since Fall 2021.
-          </p>
+          <p>My name is Jacob, and I create web applications.</p>
           <FollowingP>
-            I am a volunteer developer with the Gainesville, FL brigade of{" "}
-            <StyledSpan>Code for America </StyledSpan> and have been since July
-            2022. We are currently working on several projects with community
-            organizations, local schools, and the city government. One such
-            project is our{" "}
-            <StyledSpan>"resource finder" application</StyledSpan> with the city
-            government, which seeks to help under-served citizens easily find
-            city resources.
+            In my free time, I like to program, read fiction and history, and
+            play strategy games (both the computer and board varieties.) I
+            graduated from the <StyledSpan>University of Florida</StyledSpan> in
+            2019 with a bachelor's degree in history and minor in English.
           </FollowingP>
           <FollowingP>
-            I graduated from the <StyledSpan>University of Florida</StyledSpan>{" "}
-            in 2019 with a bachelor's degree in history and minor in English. I
-            am specifically interested in the 18th and 19th century, and more
-            recently have been on a French Revolution/Napoleon kick. In my free
-            time I enjoy reading, weightlifting, spending time with family, and
-            camping.
+            I have been a volunteer developer with the Gainesville, FL brigade
+            of <StyledSpan>Code for America </StyledSpan> since July 2022.
+            CodeGNV is an organization dedicated to expanding access to services
+            for Gainesville residents through technological solutions. We are
+            currently working on several projects with community organizations,
+            local schools, and the city government. You can visit our webpage
+            here:{" "}
+            <a
+              href="https://www.codegnv.org/"
+              alt="Link to CodeGNV website"
+              target={"_blank"}
+              rel="noreferrer"
+            >
+              https://www.codegnv.org/
+            </a>
           </FollowingP>
-          <p>
-            Here are a few of the <StyledSpan>technologies</StyledSpan> I have
-            been using recently:
-          </p>
+          <p>Here are a few of the technologies I have been using recently:</p>
           <TechIconsContainer>
             {Icons.map((icon) => {
               return (
