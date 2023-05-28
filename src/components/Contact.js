@@ -374,12 +374,11 @@ const Contact = (props) => {
       <HeaderContainer>
         <SectionHeader>Talk To Me</SectionHeader>
         <StyledP>
-          I am currently pounding the pavement, on the hunt, grinding. I am
-          looking for a job.
+          Send me a message. It is very possible that I will respond!
         </StyledP>
         <StyledP>
-          If you wish to discuss an opportunity, write a message down below or
-          connect on Linkedin.
+          At the very least, you will get to click some buttons, which is fun in
+          its own right.
         </StyledP>
       </HeaderContainer>
       <ContactFormContainer id="form" toggle={error}>
