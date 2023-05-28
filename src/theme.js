@@ -11,18 +11,27 @@ const theme = {
     subHeader: "2.5rem",
     text: "1.5rem",
     smallText: "1.3rem",
-    headerLink: "2rem",
+    headerLink: "1.5rem",
   },
   size: {
-    headerHeight: "7vh",
-    sectionHeight: "100vh",
+    //former 7vh
+    headerHeight: "5rem",
+    //equal to 100vh
+    sectionHeight: "59rem",
+    heroHeight: "65rem",
   },
   font: {
     header: "modernNo20",
   },
-
+  //the equivalent of 120px at 16px font size
   spacing: {
-    marginLR: "120px",
+    marginLR: "7.5rem",
+    marginMobileLeft: "3rem",
+    marginTabletLeft: "4rem",
+  },
+  breakpoints: {
+    mobile: "450px",
+    tablet: "1100px",
   },
 };
 

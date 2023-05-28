@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import projects from "../projectsObj";
-import githubSVG from "../assets/github-original.svg";
-import compassSVG from "../assets/compassSVG.svg";
 
 const ProjectsWrapper = styled.main`
   display: flex;
@@ -18,22 +16,40 @@ const SectionHeader = styled.h2`
   grid-column: 1/-1;
   font-family: ${(props) => props.theme.font.header};
   font-weight: normal;
+  align-self: end;
+  margin-top: 2rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    justify-self: left;
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    justify-self: center;
+    //margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    margin-left: 0;
+  }
 `;
 
 const TotalContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  //equivalent to 520px at 1920 resolution
+  grid-template-columns: repeat(auto-fit, minmax(32.5rem, 1fr));
   grid-template-rows: auto;
   justify-items: left;
   margin-left: ${(props) => props.theme.spacing.marginLR};
   margin-right: ${(props) => props.theme.spacing.marginLR};
   //justify-items: center;
-  gap: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  @media (max-width: 1000px) {
-    margin-left: 50px;
+  gap: 2rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    //justify-items: center;
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+    margin-right: 0;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    justify-items: center;
+    //margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
+    margin-right: 0;
+    margin-left: 0;
   }
 `;
 
@@ -44,11 +60,12 @@ const ProjectContainer = styled.a`
   //this ensures buttons on bottom and title are lined up, may have to limit sentence length to fix for real
   justify-content: space-between;
   box-sizing: border-box;
-  max-width: 520px;
-  min-height: 400px;
+  //can visually see the boxes resizing on zoom with this in rem
+  max-width: 32.5rem;
+  min-height: 25rem;
   text-decoration: none;
-  gap: 15px;
-  padding: 25px 35px 25px 35px;
+  gap: 1rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
   background-color: ${(props) => props.theme.colors.indigoDye};
   color: ${(props) => props.theme.colors.white};
   transition: all 0.4s ease-in-out;
@@ -65,10 +82,11 @@ const ProjectHeader = styled.h3`
 `;
 const ProjectText = styled.p`
   font-size: ${(props) => props.theme.fontSize.text};
+  min-width: 100%;
 `;
 const StyledScreenshot = styled.img`
-  max-width: 450px;
-  max-height: 400px;
+  max-width: 28rem;
+  max-height: 25rem;
   border-radius: 15px;
 `;
 const IconContainer = styled.div`
@@ -83,14 +101,18 @@ const Icon = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   transition: all 0.4s ease-in-out;
   &:hover {
     transform: scale(1.1);
   }
 `;
 //heights are individually set on SVG, different bc I am making the border on compass invisible
-const GithubIcon = styled.img`
+
+const GithubIcon = styled.i`
   color: white;
+  text-decoration: none;
+  font-size: 3.5rem;
 `;
 
 const Projects = (props) => {
@@ -110,16 +132,18 @@ const Projects = (props) => {
               <StyledScreenshot
                 src={project.screenshot}
                 alt={project.description}
-                loading="lazy"
+                loading="auto"
               />
               <ProjectText>{project.description}</ProjectText>
               <IconContainer>
                 <Icon href={project.github} target="_blank" rel="noreferrer">
-                  <GithubIcon src={githubSVG}></GithubIcon>
+                  <GithubIcon className="devicon-github-original"></GithubIcon>
                 </Icon>
 
                 <Icon href={project.liveURL} target="_blank" rel="noreferrer">
-                  <GithubIcon src={compassSVG}></GithubIcon>
+                  <GithubIcon className="material-symbols-outlined">
+                    output
+                  </GithubIcon>
                 </Icon>
                 <ProjectText>View Code</ProjectText>
                 <ProjectText>Live Page</ProjectText>

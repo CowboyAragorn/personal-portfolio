@@ -3,15 +3,15 @@ import styled, { css, keyframes } from "styled-components";
 import treeBackground from "../assets/images/treeBackground.webp";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const ContactWrapper = styled.footer`
   //this has to be 90vh to prevent scrolling through bottom of page
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: center;
-  min-height: 90vh;
+  //justify-content: center;
+  min-height: ${(props) => props.theme.size.sectionHeight};
   background-image: linear-gradient(
       to left,
       rgba(217, 217, 217, 0),
@@ -27,8 +27,8 @@ const ContactWrapper = styled.footer`
   text-align: left;
   padding-top: ${(props) => props.theme.size.headerHeight};
   box-shadow: 1px 1vh 8px ${(props) => props.theme.colors.gainsboro} inset;
-  @media (max-width: 1000px) {
-    align-items: center;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    background-image: none;
   }
 `;
 
@@ -37,46 +37,46 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  max-width: 800px;
-  gap: 15px;
+  /* min-width: 35rem;
+  max-width: 62.5rem; */
+  gap: 1rem;
   //this margin is the same as contact form container margin
-  margin-left: 145px;
-  margin-bottom: 20px;
-  @media (max-width: 1000px) {
+  margin-left: ${(props) => props.theme.spacing.marginLR};
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    //max-width: 30rem;
+    //margin-left: ${(props) => props.theme.spacing.marginMobileLeft};
     margin-left: 0;
+    align-items: center;
+    justify-content: center;
   }
 `;
-
 const SectionHeader = styled.h2`
   font-size: ${(props) => props.theme.fontSize.sectionHeader};
+  max-width: 62.5rem;
   margin: 0;
   align-self: left;
   //font-weight: bold;
   color: ${(props) => props.theme.colors.jet};
   font-family: ${(props) => props.theme.font.header};
   font-weight: normal;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    max-width: 35rem;
+    align-self: center;
+  }
 `;
 const StyledP = styled.p`
   text-align: center;
   font-size: ${(props) => props.theme.fontSize.smallText};
   text-align: left;
-`;
-
-const shake = keyframes`
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
+  max-width: 62.5rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    max-width: 35rem;
+    font-size: ${(props) => props.theme.fontSize.text};
   }
 `;
 
@@ -85,18 +85,17 @@ const ContactFormContainer = styled.form`
   flex-wrap: wrap;
   flex-direction: column;
   border: 1pt solid black;
-  max-width: 800px;
-  align-items: center;
+  align-items: left;
   justify-content: center;
-  gap: 20px;
+  max-width: fit-content;
+  gap: 1.3rem;
   //background-color: ${(props) => props.theme.colors.ming};
-  padding: 35px;
+  padding: 2rem;
   padding-left: 0;
   padding-right: 0;
   border: none;
   border-radius: 15px;
-  margin-left: 145px;
-
+  margin-left: ${(props) => props.theme.spacing.marginLR};
   ${(props) => {
     if (props.toggle) {
       console.log("I got here");
@@ -107,8 +106,41 @@ const ContactFormContainer = styled.form`
       `;
     }
   }}
-  @media (max-width: 1000px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    margin-left: ${(props) => props.theme.spacing.marginTabletLeft};
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    max-width: 100%;
+    align-items: center;
     margin-left: 0;
+  }
+`;
+const SuccessMessageContainer = styled.div`
+  display: flex;
+  background-color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.ming};
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 19rem;
+  border-radius: 15px;
+  box-sizing: border-box;
+  border: 1pt solid ${(props) => props.theme.colors.ming};
+  transition: transform 1.5s;
+  &.fade {
+    transform: scale(0);
+  }
+`;
+const StyledCloseButton = styled.button`
+  background-color: ${(props) => props.theme.colors.white};
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50%;
+  transition: transform 1s;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
   }
 `;
 
@@ -150,14 +182,14 @@ const InputError = styled.p`
 `;
 const StyledInput = styled.input`
   box-sizing: border-box;
-  min-width: 500px;
+  min-width: 31rem;
   font-size: ${(props) => props.theme.fontSize.smallText};
   background-color: ${(props) => props.theme.colors.white};
   color: ${(props) => props.theme.colors.jet};
   border: none;
   border-bottom: 1pt solid white;
-  padding: 15px;
-  padding-left: 10px;
+  padding: 1rem;
+  padding-left: 0.5rem;
   border-radius: 15px;
   &::placeholder {
     color: ${(props) => props.theme.colors.jet};
@@ -171,10 +203,10 @@ const StyledInput = styled.input`
 
 const StyledTextArea = styled.textarea`
   box-sizing: border-box;
-  min-height: 170px;
-  min-width: 500px;
+  min-height: 10rem;
+  min-width: 31rem;
   font-size: ${(props) => props.theme.fontSize.smallText};
-  padding: 10px;
+  padding: 1rem;
   background-color: ${(props) => props.theme.colors.white};
   border: none;
   border: 1pt solid white;
@@ -193,20 +225,40 @@ const StyledTextArea = styled.textarea`
 
 //TODO: make checkoutBtn an importable styled component for contact, payment container, and shop
 const SubmitFormBtn = styled.button`
-  padding: 14px;
+  padding: 1rem 3rem 1rem 3rem;
   font-size: ${(props) => props.theme.fontSize.smallText};
   border-radius: 5px;
   border: none;
+  margin-top: 1rem;
   font-weight: bold;
   text-decoration: none;
-  width: 25%;
+  //width: 25%;
   transition: transform 1s;
+  align-self: center;
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
   }
   &:focus {
     transform: scale(1.1);
+  }
+`;
+
+const shake = keyframes`
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 `;
 //don't want to make this an actual form that submits because
@@ -220,11 +272,14 @@ const Contact = (props) => {
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
   const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
   const userCollectionRef = collection(db, "messageData");
+  const successMessage = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const validCheck = submitValidation();
+    //if form is invalid, shake and refuse
     if (validCheck === false) {
       console.log("form invalid");
       setError(true);
@@ -234,23 +289,22 @@ const Contact = (props) => {
 
       return;
     }
-    //these four lines are only for testing
-    console.log("form is valid");
-    setName("");
-    setEmail("");
-    setMessage("");
-    // //submits to form and resets form
-    // addDoc(userCollectionRef, {
-    //   name: name,
-    //   email: email,
-    //   message: message,
-    //   sent: Timestamp.now(),
-    // }).then(() => {
-    //   alert("form submitted successfully");
-    //   setName("");
-    //   setEmail("");
-    //   setMessage("");
-    // });
+    //submits to form and resets form
+    addDoc(userCollectionRef, {
+      name: name,
+      email: email,
+      message: message,
+      sent: Timestamp.now(),
+    }).then(() => {
+      // alert("form submitted successfully");
+      setName("");
+      setEmail("");
+      setMessage("");
+      setNameError("");
+      setEmailError("");
+      setMessageError("");
+      setSuccess(true);
+    });
   };
 
   //if the form is empty or if any error messages are displayed, display false
@@ -273,33 +327,6 @@ const Contact = (props) => {
     ) {
       return false;
     }
-
-    // //if any of the inputs are invalid, the form will fail to submit and display the relevant error message//
-    // let validity = true;
-    // //name
-    // if (name.length <= 0) {
-    //   validity = false;
-    //   setNameError("*Name must be at least 1 character*");
-    // }
-    // //if the error was previously displayed, but shouldn't be any longer
-    // else if (nameError !== "") {
-    //   setNameError("");
-    // }
-    // //email
-    // if (email.length <= 0) {
-    //   validity = false;
-    //   setEmailError("*Name must be at least 1 character*");
-    // } else if (emailError !== "") {
-    //   setEmailError("");
-    // }
-    // //messages
-    // if (message.length <= 0) {
-    //   validity = false;
-    //   setMessageError("*Please type a message*");
-    // } else if (messageError !== "") {
-    //   setMessageError("");
-    // }
-    // return validity;
   };
 
   const nameValidator = (e) => {
@@ -335,6 +362,13 @@ const Contact = (props) => {
     }
   };
 
+  const handleCloseSuccessPopup = () => {
+    successMessage.current.classList.add("fade");
+    setTimeout(() => {
+      setSuccess(false);
+      successMessage.current.classList.remove("fade");
+    }, 1500);
+  };
   return (
     <ContactWrapper ref={props.reference}>
       <HeaderContainer>
@@ -348,9 +382,20 @@ const Contact = (props) => {
           connect on Linkedin.
         </StyledP>
       </HeaderContainer>
-
       <ContactFormContainer id="form" toggle={error}>
         <InputFieldContainer>
+          {success ? (
+            <SuccessMessageContainer ref={successMessage}>
+              <StyledP>Your message was sent!</StyledP>
+              <StyledCloseButton
+                onClick={handleCloseSuccessPopup}
+                alt="closeSuccessMessage"
+                type="button"
+              >
+                X
+              </StyledCloseButton>
+            </SuccessMessageContainer>
+          ) : null}
           <LabelAndErrorContainer>
             <StyledLabel htmlFor="name">Name *</StyledLabel>
             <InputError toggle={nameError}>{nameError}</InputError>

@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
   position: -ms-sticky;
   position: sticky;
   top: 0;
-  min-width: 100%;
+  width: 100%;
   background-color: ${(props) => props.theme.colors.jet};
   min-height: ${(props) => props.theme.size.headerHeight};
   z-index: 1;
@@ -22,8 +22,8 @@ const LinksContainer = styled.div`
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 2rem;
+  padding-right: 2rem;
   min-width: 100%;
 `;
 const HeaderLink = styled.button`
@@ -31,6 +31,7 @@ const HeaderLink = styled.button`
   background-color: ${(props) => props.theme.colors.jet};
   border: none;
   font-size: ${(props) => props.theme.fontSize.headerLink};
+  align-self: end;
   &:hover {
     cursor: pointer;
     color: ${(props) => props.theme.colors.ming};
@@ -39,7 +40,10 @@ const HeaderLink = styled.button`
 const NavList = styled.ul`
   display: flex;
   align-items: baseline;
-  gap: 25px;
+  gap: 1rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    gap: 0.5rem;
+  }
 `;
 
 const IconLink = styled.a`
