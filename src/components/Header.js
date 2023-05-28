@@ -75,6 +75,15 @@ const Header = (props) => {
           <li>
             <IconLink
               style={{ color: "white", fontSize: "2rem" }}
+              className="devicon-github-original"
+              href={"https://github.com/CowboyAragorn"}
+              target="_blank"
+              rel="noreferrer"
+            ></IconLink>
+          </li>
+          <li>
+            <IconLink
+              style={{ color: "white", fontSize: "2rem" }}
               className="devicon-linkedin-plain"
               href={"https://www.linkedin.com/in/cjacobpotter/"}
               target="_blank"

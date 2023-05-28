@@ -142,12 +142,16 @@ const About = (props) => {
       </HeaderContainer>
       <AboutContainer>
         <AboutTextContainer>
-          <p>My name is Jacob, and I create web applications.</p>
+          <p>
+            My name is Jacob, and I create web applications. I have been
+            particularly interested in building webpages with React and various
+            scripting projects in Python.
+          </p>
           <FollowingP>
-            In my free time, I like to program, read fiction and history, and
-            play strategy games (both the computer and board varieties.) I
-            graduated from the <StyledSpan>University of Florida</StyledSpan> in
-            2019 with a bachelor's degree in history and minor in English.
+            I enjoy programming, reading literature & history, and playing
+            strategy games. I graduated from the{" "}
+            <StyledSpan>University of Florida</StyledSpan> 🐊 in 2019, earning a
+            bachelor's degree in history with a minor in English.
           </FollowingP>
           <FollowingP>
             I have been a volunteer developer with the Gainesville, FL brigade
