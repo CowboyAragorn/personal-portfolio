@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9b489acf.css",
-    "main.js": "/static/js/main.62900a0d.js",
+    "main.js": "/static/js/main.7e8d244e.js",
     "static/media/todoScreenshot.webp": "/static/media/todoScreenshot.284b9da7162d443c7b65.webp",
     "static/media/storePageScreen.webp": "/static/media/storePageScreen.3d33aa20c2d81e23c7dc.webp",
     "static/media/Handsome Man (ME).jpg": "/static/media/Handsome Man (ME).0edd5ed1b2a2f02813c1.jpg",
@@ -18,10 +18,10 @@
     "static/media/binaryScreenshot.webp": "/static/media/binaryScreenshot.7e7e927316467303a6af.webp",
     "index.html": "/index.html",
     "main.9b489acf.css.map": "/static/css/main.9b489acf.css.map",
-    "main.62900a0d.js.map": "/static/js/main.62900a0d.js.map"
+    "main.7e8d244e.js.map": "/static/js/main.7e8d244e.js.map"
   },
   "entrypoints": [
     "static/css/main.9b489acf.css",
-    "static/js/main.62900a0d.js"
+    "static/js/main.7e8d244e.js"
   ]
 }
